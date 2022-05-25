@@ -1,0 +1,25 @@
+<!-- HearThis.at shortcode for Hugo
+
+Usage: hearthis episodeid
+Get episodeid from HearThis.at >> Set >> Episode >> Social tab >> Short Link (Twitter)
+https://hearthis.at/6405929/
+
+Based on: 
+https://gohugo.io/templates/shortcode-templates/ 
+https://community.mybb.com/thread-189657.html
+and HearThis.at >> Set >> Embed Episode dialog
+See also official WordPress plugin (PHP): 
+https://wordpress.org/plugins/hearthisat/
+-->
+<div class="embed podcast-hearthis">
+	<iframe 
+	scrolling="no" 
+	frameborder="0" 
+	allowtransparency
+	id="hearthis_at_track_{{ .Get 0 }}" 
+	width="100%" height="150" 
+	src="https://hearthis.at/embed/{{ .Get 0 }}/transparent_black/?hcolor=&color=&style=2&block_size=2&block_space=2&background=1&waveform=0&cover=0&autoplay=0&css=" 
+	>
+	</iframe>
+</div>
+
