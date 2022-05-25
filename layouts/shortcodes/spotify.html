@@ -1,0 +1,60 @@
+<!-- Spotify shortcode for Hugo
+
+Usage: 
+spotify media="mediatype" id="37i9dQZF1DX59NCqCqJtoH" theme="dark"
+or
+spotify playlist 37i9dQZF1DX59NCqCqJtoH dark
+
+Specify supported mediatype: track, artist, album, playlist, episode, show 
+then get id from Spotify
+Theme is adaptive (follows album art) or can be specified to be dark
+
+Height automatically adapts depending on mediatype:
+track. size compact = 80
+artist/album/playlist, size normal = 380
+Podcasts
+episode, size compact = 152
+show (actually displays just 1 episode), size normal = 232
+
+Example Spotify "Share" URL - ignore everything after ?si=
+https://open.spotify.com/playlist/37i9dQZF1DX59NCqCqJtoH?si=ebcd7934aa754ae7
+
+Warning: only plays track previews; full content requires going to Spotify.com and account except for podcasts, which require Widevine but play fully.
+
+By embedding a Spotify player on your site, you are agreeing to Spotify's API Terms of Service
+
+Based on: 
+https://gohugo.io/templates/shortcode-templates/ 
+https://artists.spotify.com/en/help/article/embedded-players-follow-buttons
+https://kodify.net/hugo/functions/hugo-cond-function/
+-->
+
+{{ if .IsNamedParams }}
+	<div class="embed music-spotify">
+		<iframe 
+		style="border-radius:12px" 
+		src="https://open.spotify.com/embed/{{ .Get "media" }}/{{ .Get "id" }}?utm_source=generator{{ if .Get "theme" | eq "dark" }}&theme=0{{ end }}" 
+		width="100%" 
+		height="{{ if (.Get "media" | eq "track") }}80
+				{{ else if (.Get "media" | eq "episode") }}152
+				{{ else if (.Get "media" | eq "show") }}252
+				{{ else }}380{{ end }}"
+		frameBorder="0" 
+		allowfullscreen="" 
+		allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+	</div>
+{{ else }}
+	<div class="embed music-spotify">
+		<iframe 
+		style="border-radius:12px" 
+		src="https://open.spotify.com/embed/{{ .Get 0 }}/{{ .Get 1 }}?utm_source=generator{{ if len .Params | eq 3 }}{{ .Get 2 | eq "dark" }}&theme=0{{ end }}" 
+		width="100%" 
+		height="{{ if (.Get 0 | eq "track") }}80
+				{{ else if (.Get 0 | eq "episode") }}152
+				{{ else if (.Get 0 | eq "show") }}252
+				{{ else }}380{{ end }}"
+		frameBorder="0"
+		allowfullscreen="" 
+		allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+	</div>
+{{ end }}
