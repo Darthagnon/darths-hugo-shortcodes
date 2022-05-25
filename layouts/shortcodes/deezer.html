@@ -1,0 +1,44 @@
+<!-- Deezer shortcode for Hugo
+
+Usage: 
+deezer media="mediatype" id="1234567890" theme="dark" height="300"
+or
+deezer playlist 1479458365 light
+
+Get id from Deezer, and specify supported mediatype: album, playlist, track, artist, podcast, episode
+(Optional) Theme may be specified: auto (default), light, dark
+(Optional, only with Named Parameters) Height may be specified (height triggers for responsive design are listed): 300 (default), 150 (min) 240, 430, 1000 (max), auto 
+https://www.deezer.com/br/playlist/1479458365
+
+
+Warning: only plays track previews; full content requires going to Deezer.com and account
+
+Based on: 
+https://gohugo.io/templates/shortcode-templates/ 
+https://widget.deezer.com/
+-->
+
+{{ if .IsNamedParams }}
+	<div class="embed music-deezer">
+		<iframe 
+		title="deezer-widget" 
+		src="https://widget.deezer.com/widget/{{ if .Get "theme" }}{{ .Get "theme" }}{{ else }}auto{{ end }}/{{ .Get "media" }}/{{ .Get "id" }}" 
+		width="100%" height="{{ if .Get "height" }}{{ .Get "height" }}{{ else }}300{{ end }}" 
+		frameborder="0" 
+		allowtransparency="true" 
+		allow="encrypted-media; clipboard-write"
+		>
+		</iframe>
+	</div>
+{{ else }}
+	<div class="embed music-deezer">
+		<iframe 
+		title="deezer-widget" 
+		src="https://widget.deezer.com/widget/{{ if len .Params | eq 4 }}{{ .Get 2 }}{{ else }} auto {{ end }}/{{ .Get 0 }}/{{ .Get 1 }}" 
+		width="100%" height="300" 
+		frameborder="0" 
+		allowtransparency="true" 
+		allow="encrypted-media; clipboard-write">
+		</iframe>
+	</div>
+{{ end }}
