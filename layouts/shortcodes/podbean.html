@@ -1,0 +1,21 @@
+<!-- PodBean shortcode for Hugo
+
+Usage: podbean episodeid
+where episodeid is taken from Podbean "Share" (remove the pb-):
+https://www.podbean.com/ew/pb-49suk-105448b
+
+Based on: 
+https://gohugo.io/templates/shortcode-templates/ 
+https://www.podbean.com/media/share >> Embed tab
+-->
+<div class="embed podcast-podbean">
+	<iframe title="PodBean Podcast Episode" 
+	allowtransparency="true" 
+	height="150" width="100%" 
+	style="border: none; min-width: min(100%, 430px);" 
+	scrolling="no" 
+	data-name="pb-iframe-player" 
+	src="https://www.podbean.com/player-v2/?from=embed&i={{ .Get 0 }}&share=1&download=1&fonts=Arial&skin=1b1b1b&font-color=auto&rtl=0&logo_link=episode_page&btn-skin=c73a3a&size=150">
+	</iframe>
+</div>
+
