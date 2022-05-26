@@ -29,6 +29,7 @@ The folder structure should be self-explanatory, and you can add these directly 
 Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your website root or theme root.
 
 ## TODO
-- Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?
+- ~~Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?~~
+- Add more detailed example documentation (copy from HTML)
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
