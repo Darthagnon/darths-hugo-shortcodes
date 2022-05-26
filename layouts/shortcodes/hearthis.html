@@ -23,3 +23,8 @@ https://wordpress.org/plugins/hearthisat/
 	</iframe>
 </div>
 
+{{ if .site.Params.debug}}
+	<script>
+		console.log("Loaded external content from HearThis.at");
+	</script>
+{{ end }}

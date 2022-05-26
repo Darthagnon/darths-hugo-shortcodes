@@ -42,3 +42,9 @@ https://widget.deezer.com/
 		</iframe>
 	</div>
 {{ end }}
+
+{{ if .site.Params.debug}}
+	<script>
+		console.log("Loaded external content from Deezer.com");
+	</script>
+{{ end }}
