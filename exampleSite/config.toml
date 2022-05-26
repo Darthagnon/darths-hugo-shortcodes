@@ -1,0 +1,4 @@
+[params]
+	# Load Darth's Hugo Shortcodes as a "secondary theme" module alongside your main Hugo theme
+	theme = ["mainTheme", "darths-hugo-shortcodes"]
+	

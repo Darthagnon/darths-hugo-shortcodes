@@ -1,0 +1,10 @@
+name = "Darth's Hugo Shortcodes"
+license = ""
+licenselink = ""
+description = "A collection of Hugo shortcodes that you can use in any theme."
+homepage = "https://github.com/Darthagnon/darths-hugo-shortcodes"
+min_version = "0.79.0"
+
+[author]
+name = "Darthagnon"
+homepage = "https://robot-one.github.io"

@@ -16,6 +16,18 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [Deezer](https://www.deezer.com/br/)
 - [Spotify](https://open.spotify.com/)
 
+## Usage
+
+### Recommended
+1. Download and extract ZIP (**offline**) or git clone submodule (**online**) into `\yourHugoWebsite\themes\`
+2. Edit your site's `config.toml` so that its `[params]` are `theme = ["mainTheme", "darths-hugo-shortcodes"]`
+	- Yes, you need to use another main theme alongside this. These shortcodes are just to add capabilities to other themes .
+3. Copy the contents of `\exampleSite\` to your site's root, and see the examples (you can also read the shortcodes' HTML to for additional details).
+4. Call the shortcodes when desired in your site's content via `{{< shortcode parameter1 ... >}}`
+
+### Manually
+Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your website root or theme root.
+
 ## TODO
 - Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
