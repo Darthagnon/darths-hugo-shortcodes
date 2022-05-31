@@ -31,5 +31,8 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 ## TODO
 - ~~Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?~~
 - Add more detailed example documentation (copy from HTML)
+- More shortcodes:
+	- Embeddable RSS feed
+	- Magic: the Gathering hovercards
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
