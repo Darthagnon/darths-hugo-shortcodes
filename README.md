@@ -33,6 +33,13 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 - Add more detailed example documentation (copy from HTML)
 - More shortcodes:
 	- Embeddable RSS feed
-	- Magic: the Gathering hovercards
+	- Magic: the Gathering hovercards (via Scryfall and TappedOut APIs?)
+	- Embeddable Google Forms (and alternatives, e.g. Formspree)
+	- Embeddable local JS MP3 player (where did I see that good one?!)
+	- Embeddable PDF.js
+	- Embeddable [OpenSea NFTs](https://docs.opensea.io/docs/embeds)
+	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
+	- Embeddable Soundcloud
+	- Embeddable arbitrary website iframe
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
