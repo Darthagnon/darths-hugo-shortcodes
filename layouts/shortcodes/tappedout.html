@@ -1,0 +1,17 @@
+<!-- TappedOut.net embeddable MtG decklists
+http://tappedout.github.io/
+https://greasyfork.org/en/scripts/390036-scrytip-magic-scryfall-tooltips-for-reddit
+
+-->
+<script src="http://tappedout.net/tappedout.js"></script>
+
+<!-- card from TappedOut.net -->
+<span class="mtgcard">{{ .Get 0 }} {{ .Get 1 }}</span>
+
+<!-- decklist typed out -->
+<div class="deck-list">
+{{ .Get }}
+</div>
+
+<!-- decklist from TappedOut.net -->
+<div class="deck-list" data-stub="{{ .Get 0 }}">&nbsp;</div>
