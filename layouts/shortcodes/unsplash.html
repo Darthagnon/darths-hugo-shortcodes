@@ -1,0 +1,30 @@
+{{- $user := .Get "user" -}}
+{{- if (and $user (not (hasPrefix $user "@"))) -}}
+  {{- $user = printf "@%s" $user -}}
+{{- end -}}
+
+{{- $q := cond (not (.Get "q")) "50" (.Get "q") -}}
+{{- $s := .Get "src" -}}
+{{ $url := printf "https://images.unsplash.com/%s?fm=webp&q=%s" $s $q}}
+
+{{- $ws := uniq (slice 240 300 360 480 600 768 800 960 1024 1080 1200 1366 1920) -}}
+{{- $srcset := slice -}}
+{{ range sort $ws }}
+  {{ $srcset = $srcset | append (printf "%s&w=%d %dw" $url . . | safeURL) }}
+{{ end }}
+
+{{ $srcLast := (index (split (index $srcset (sub (len $srcset) 1)) " ") 0) }}
+
+{{ $set := delimit $srcset "," }}
+{{ $alt := printf "Photo by %s on Unsplash" $user}}
+{{ $userRef := printf "<a class=\"link unsplash-ref\" rel=\"noreferrer nofollow noopener\" target=\"_blank\" href=\"https://unsplash.com/%s\">%s</a>" $user $user }}
+{{ $cap := printf "Photo by %s on Unsplash" $userRef}}
+<figure>
+  <div class="img-box">
+    <img
+      srcset="{{ $set }}"
+      sizes="(max-width: 200px) 200px, 100vw"
+      src="{{ $srcLast }}" alt="{{ $alt }}" title="{{ $alt }}"/>
+  </div>
+  <figcaption class="font-16">{{ safeHTML $cap }}</figcaption>
+</figure>
