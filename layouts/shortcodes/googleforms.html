@@ -1,0 +1,18 @@
+<!-- Google Forms - embeddable surveys
+https://forms.google.com/
+Add forms and surveys to your site
+https://support.google.com/a/users/answer/9308623?hl=en
+
+Usage: Supply the sharecode obtained from the Google Forms >> Send button (not from the URL bar, it's different).
+Form fields, colour theme, etc. must be changed via Google's editor.
+
+-->
+<div class="embed google-forms">
+<iframe src="https://docs.google.com/forms/d/e/{{ .Get 0 }}/viewform?embedded=true" width="640" height="382" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded external content from Google Forms");
+	</script>
+{{ end }}
