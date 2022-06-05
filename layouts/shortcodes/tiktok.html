@@ -1,0 +1,24 @@
+<!-- Embeddable TikTok
+Embed TikTok and get spied on by China.
+
+https://www.tiktok.com/en
+
+-->
+
+<div embed spyware-tiktok>
+	<blockquote class="tiktok-embed" 
+	cite="https://www.tiktok.com/@{username}/video/{video_id}" 
+	data-video-id="{video_id}"
+	style="max-width: 605px;min-width: 325px;" > 
+		<section> 
+			<a target="_blank" title="@{username}" href="https://www.tiktok.com/@{username}">@{username}</a>
+			{post title}
+			<!-- post tags, websafe e.g. %20 for spaces and weird characters. Need to find a way to automate scraping all this so we don't need to provide anything more than the video id -->
+			<a title="{tagname}" target="_blank" href="https://www.tiktok.com/tag/{tagname}">#{tagname}</a> 
+			<a title="{tagname2}" target="_blank" href="https://www.tiktok.com/tag/{tagname2">#{tagname2}</a> 
+			<a title="{tagname3}" target="_blank" href="https://www.tiktok.com/tag/{tagname3}">#{tagname3}</a> 
+			<a target="_blank" title="♬ {song title}" href="https://www.tiktok.com/music/{trackname}">{trackname}</a> 
+		</section> 
+	</blockquote> 
+	<script async src="https://www.tiktok.com/embed.js"></script>
+</div>
