@@ -1,0 +1,5 @@
+{{- if .Site.Params.BraveRewardsVerification -}}
+{{- $tpl := resources.Get "txt/brave-rewards-verification.txt" -}}
+{{- $txt := $tpl | resources.ExecuteAsTemplate ".well-known/brave-rewards-verification.txt" .Site  -}}
+<!-- {{ $txt.RelPermalink }} -->
+{{- end -}}

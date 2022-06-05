@@ -2,4 +2,5 @@
 	# Load Darth's Hugo Shortcodes as a "secondary theme" module alongside your main Hugo theme
 	theme = ["mainTheme", "darths-hugo-shortcodes"]
     debug = true
-	
+	# braveRewardsVerification = "07b757f77be64a337e95eaa7c2c73d81bb3a3fb88c9ef07f1d662e00f5990f64"
+    

@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: {{ replaceRE "^https?://([^/]+).*" "$1" .BaseURL }}
+Token: {{ .Params.BraveRewardsVerification }}
