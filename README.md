@@ -1,7 +1,9 @@
 # Darth's Hugo shortcodes
 A collection of Hugo shortcodes that you can use in any theme.
 
-Hugo supports shortcodes for repeatable content or rendering content from SaaS sites. They are formatted as `{{< shortcode parameter1 parameter2 >}}` and will make anything from a GitHub Gist to a YouTube video appear embedded in your page.
+Hugo comes with shortcodes for YouTube, Vimeo, Twitter,  Instagram, GitHub Gist, and a few internal functions (detailed images, relative URLs). They are used for repeatable content or rendering content from SaaS sites. They are formatted as `{{< shortcode parameter1 parameter2 >}}` and will make anything from a GitHub Gist to a YouTube video appear embedded in your page.
+
+This project aims to add a bunch more for popular services (initially focusing on podcasts/music) via `iframe` widget embeds, so that Hugo theme developers don't need to reinvent the wheel for every theme.
 
 **I strongly recommend against over-reliance on shortcodes for embedding externally-hosted content, as they will be prone to [link rot](https://en.wikipedia.org/wiki/Link_rot).** If possible, prefer an image with a hyperlink, e.g. video thumbnail + hyperlink to video, or screenshot of Twitter post + hyperlink. Thus, once the target disappears, future readers will still have some idea what the linked content was. 
 
@@ -21,9 +23,9 @@ The folder structure should be self-explanatory, and you can add these directly 
 ### Recommended
 1. Download and extract ZIP (**offline**) or git clone submodule (**online**) into `\yourHugoWebsite\themes\`
 2. Edit your site's `config.toml` so that its `[params]` are `theme = ["mainTheme", "darths-hugo-shortcodes"]`
-	- Yes, you need to use another main theme alongside this. These shortcodes are just to add capabilities to other themes .
-3. Copy the contents of `\exampleSite\` to your site's root, and see the examples (you can also read the shortcodes' HTML to for additional details).
-4. Call the shortcodes when desired in your site's content via `{{< shortcode parameter1 ... >}}`
+	- Yes, you need to use another main theme alongside this. These shortcodes are just to add capabilities to other themes.
+3. Copy the contents of `\exampleSite\` to your site's root, and see the examples (you can also read the shortcodes' HTML to for additional details). Use it alongside your main theme!
+4. Call the shortcodes when desired in your site's content via `{{< shortcode parameter1 ... >}}` or `{{< shortcode param="value" ... >}}`
 
 ### Manually
 Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your website root or theme root.
@@ -31,7 +33,7 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 ## TODO
 - ~~Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?~~
 - Add more detailed example documentation (copy from HTML)
-- More shortcodes:
+- **High priority shortcodes**:
 	- Embeddable RSS feed
 	- Magic: the Gathering hovercards (via Scryfall and TappedOut APIs?)
 	- Embeddable Google Forms (and alternatives, e.g. Formspree)
@@ -40,6 +42,21 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Embeddable [OpenSea NFTs](https://docs.opensea.io/docs/embeds)
 	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
 	- Embeddable Soundcloud
-	- Embeddable arbitrary website iframe
+	- Imgur
+- **Low priority shortcodes**
+	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed)
+	- Gfycat
+	- Flickr
+	- Bandcamp (sale-focused, rather than listening-focused)
+	- [Facebook?](https://developers.facebook.com/docs/plugins/)
+	- [Etsy](https://www.etsy.com/widgets)
+	- [Pinterest](https://developers.pinterest.com/tools/widget-builder/?) (Pinterest is 💩 and I have no idea why anyone would use it)
+- **Possibly better implemented per-site theme?**
+	- Google ads? https://support.google.com/adsense/answer/9190028?hl=en
+	- Matrix for comments or livechat? Might not be possible to embed (https://github.com/vector-im/element-web/issues/6078), or it might be (https://live.hello-matrix.net/generate.html)
+	- Cactus.chat comments (Matrix-based) https://cactus.chat/docs/integrations/hugo/, seems a very good idea thanks to Matrix bridging and federation.
+	- Mastodon comments and alternatives? If I ever get this far, might as well include all common comments systems haha (https://news.ycombinator.com/item?id=25570268)
+
+## Further Reading
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
