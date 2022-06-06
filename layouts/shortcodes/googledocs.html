@@ -1,0 +1,32 @@
+<!-- Embed Google Docs/Sheets/Slides 
+Docs: https://docs.google.com/
+Sheets: https://docs.google.com/spreadsheets/u/0/
+Slides: https://docs.google.com/presentation/u/0/
+
+Usage: 
+
+googledocs 1FAIpQLSdqRDjIhpvL1QTk_tnfzQ-KinpnykdcdpZsI9raxQgYBdxEnA
+
+First, open your document and goto: 
+File >> Share >> Publish to web
+and make it publicly available.
+Then, supply the sharecode obtained from the Google Docs/Sheets/Slides "Publish to web" tab 
+(NB it is not the same as the document URL or sharing link!!!)
+Edit the document via Google's editors, and as long as "Automatically republish when changes are made" is enabled, it will update wherever it is embedded. 
+(default width/height: 640 382, style="display: block; margin: auto;" aligns to centre)
+
+-->
+<div class="embed google-docs">
+	<iframe src="https://docs.google.com/document/d/e/{{ .Get 0 }}/pub?embedded=true"
+	width="100%" height="400" 
+	frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: none; display: block; margin: auto;" 
+	>Loading Google Docs…</iframe>
+</div>
+
+
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded external document from Google Docs");
+	</script>
+{{ end }}
