@@ -43,18 +43,22 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
 	- Embeddable Soundcloud
 	- Imgur
+	- OpenSea NFTs (only point is to show them off)
+	- Telegram
+	- Discord Guild badge/memberlist widget
+	- Unsplash
 - **Low priority shortcodes**
-	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed)
+	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed))
 	- Gfycat
 	- Flickr
 	- Bandcamp (sale-focused, rather than listening-focused)
 	- [Facebook?](https://developers.facebook.com/docs/plugins/)
 	- [Etsy](https://www.etsy.com/widgets)
-	- [Pinterest](https://developers.pinterest.com/tools/widget-builder/?) (Pinterest is 💩 and I have no idea why anyone would use it)
+	- [Pinterest](https://developers.pinterest.com/tools/widget-builder/?), TikTok, Twitch (these are 💩 and I have no idea why anyone would use them)
 - **Possibly better implemented per-site theme?**
-	- Google ads? https://support.google.com/adsense/answer/9190028?hl=en
-	- Matrix for comments or livechat? Might not be possible to embed (https://github.com/vector-im/element-web/issues/6078), or it might be (https://live.hello-matrix.net/generate.html)
-	- Cactus.chat comments (Matrix-based) https://cactus.chat/docs/integrations/hugo/, seems a very good idea thanks to Matrix bridging and federation.
+	- [Google ads?](https://support.google.com/adsense/answer/9190028?hl=en)
+	- Matrix for comments or livechat? [Might](https://live.hello-matrix.net/generate.html) or [might not](https://github.com/vector-im/element-web/issues/6078) be possible to embed, or it might be 
+	- [Cactus.chat comments](https://cactus.chat/docs/integrations/hugo/) (Matrix-based), seems a very good idea thanks to Matrix bridging and federation.
 	- Mastodon comments and alternatives? If I ever get this far, might as well include all common comments systems haha (https://news.ycombinator.com/item?id=25570268)
 
 ## Further Reading
