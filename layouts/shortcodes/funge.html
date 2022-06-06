@@ -1,0 +1,70 @@
+<!-- Embed/funge NFT
+https://github.com/ProjectOpenSea/embeddable-nfts
+https://docs.opensea.io/docs/embeds
+
+Usage: 
+1) Make paradoxically "unique" and yet easily copyable fungus on the internet
+2) Sell it to idiots
+3) Profit
+
+Call the following Hugo shortcode to show off your shame on any content page:
+
+funge contractAddress tokenId
+or
+funge contractAddress="bla" tokenId="bla" orientation="horizontal/vertical" width="100%" height="300px" network="mainnet/testnet" 
+
+For collections, add collection="collectionName"
+Known issues: 
+- Collections must use &embed=true if a ? already exists in URL, which the below code does not do
+- Collections look a bit rubbish (2nd scrollbar)
+- Some NFTs don't display, instead having "¯\_(ツ)_/¯ Problem loading asset." Looks like Polygon "matic" NFTs don't load? 
+
+OpenSea NFT URLs are supplied as follows:
+https://opensea.io/assets/ethereum/[contractAddress]/[tokenId]/
+Example:
+https://opensea.io/assets/ethereum/0xd1e5b0ff1287aa9f9a268759062e4ab08b9dacbe/105497419635294095894519942330270477445331529530180169464364453130971299318396/
+
+Note: Normally, I include 3rd-party/vendored code in my packages, but NFTs are forever... right? So here, we'll stick with UnPKG. We'll see how long the remote code and the whole pyramid survives.
+
+-->
+
+{{ if (.Get "collection" ) }}
+	<div class="embed nft collection">
+		<iframe src='https://opensea.io/collection/{{ .Get "collection" }}?embed=true' 
+			width='100%'
+			height='{{ .Get "height" }}'
+			frameborder='0'
+			allowfullscreen>
+		</iframe>
+	</div>
+{{ else if .IsNamedParams }}
+	<div class="embed nft">
+		<nft-card
+		contractAddress="{{ .Get "contractAddress" }}"
+		tokenId="{{ .Get "tokenId" }}"
+			{{ if (.Get "orientation" | eq "horizontal") }}horizontal
+			{{ else if (.Get "orientation" | eq "vertical") }}orientationMode="auto"
+			{{ else }}{{ end }}
+		{{ if .Get "width" }} width="{{ .Get "width" }}" {{ end }}
+		{{ if .Get "height" }} height="{{ .Get "height" }}" {{ end }}
+		{{ if.Get "network" }} network="{{ .Get "network" }}" {{ end }}
+		>
+		</nft-card>
+		<script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
+	</div>
+{{ else }}
+	<div class="embed nft">
+		<nft-card
+		contractAddress="{{ .Get 0 }}"
+		tokenId="{{ .Get 1 }}">
+		</nft-card>
+		<script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
+	</div>
+{{ end }}
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Funged external Non-Fungible Token from Opensea.io");
+		console.log("WARNING! NFTs, crypto and their promoters are stupid scams for idiots and money-laundering; don't fall for it!");
+	</script>
+{{ end }}
