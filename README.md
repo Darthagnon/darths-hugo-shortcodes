@@ -17,6 +17,7 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [HearThis.at](https://hearthis.at/)
 - [Deezer](https://www.deezer.com/br/)
 - [Spotify](https://open.spotify.com/)
+- [Imgur](https://help.imgur.com/hc/en-us/articles/211273743-Embed-Unit)
 
 ## Usage
 
@@ -42,7 +43,7 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Embeddable [OpenSea NFTs](https://docs.opensea.io/docs/embeds)
 	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
 	- Embeddable Soundcloud
-	- Imgur
+	- ~~Imgur~~
 	- OpenSea NFTs (only point is to show them off)
 	- Telegram
 	- Discord Guild badge/memberlist widget
