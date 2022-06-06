@@ -3,13 +3,10 @@
 https://help.imgur.com/hc/en-us/articles/211273743-Embed-Unit
 
 Usage:
-imgur imgId 0 writetitlehere
+imgur asdf1234 
+imgur imgId="asdf1234" 
 
-imgur imgId="" displayTitle="" title=""
-
-0/1 hide/display title
-
-Warning: Imgur iframe loads invasive Facebook, Alexa and Quantcast scripts. 
+Warning: Imgur iframe loads invasive Facebook, Alexa and Quantcast scripts. GIFs/Videos will autoplay.
 I recommend you save the images/GIFs locally and serve them statically.
 
 -->
@@ -17,16 +14,14 @@ I recommend you save the images/GIFs locally and serve them statically.
 {{ if .IsNamedParams }}
 	<div embed imgur>
 
-	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get "imgID" }}" data-context="{{ .Get "displayTitle" }}" >
-	<a href="//imgur.com/a/{{ .Get "imgID" }}">{{ .Get "title" }}</a></blockquote>
+	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get "imgID" }}" ></blockquote>
 	<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 	</div>
 {{ else }}
 	<div embed imgur>
 
-	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get 0}}" data-context="{{ .Get 1 }}" >
-	<a href="//imgur.com/a/{{ .Get 0 }}">{{ .Get 2 }}</a></blockquote>
+	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get 0}}" ></blockquote>
 	<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 	</div>
@@ -34,6 +29,6 @@ I recommend you save the images/GIFs locally and serve them statically.
 
 {{ if .Site.Params.debug }}
 	<script>
-		console.log("Loaded external cat pictures from Imgur");
+		console.log("Loaded external cat pictures from Imgur:");
 	</script>
 {{ end }}
