@@ -1,0 +1,114 @@
+<!-- Google Docs/Sheets/Slides/Forms/Drawings - embeddable surveys, documents and drawings
+Docs: https://docs.google.com/
+Sheets: https://docs.google.com/spreadsheets/u/0/
+Slides: https://docs.google.com/presentation/u/0/
+Forms: https://forms.google.com/
+
+--------------------------------------------
+https://stackoverflow.com/questions/16041643/remove-scroll-bar-from-iframe/19724938
+https://www.geeksforgeeks.org/how-to-apply-css-property-to-an-iframe/
+Add forms and surveys to your site
+https://support.google.com/a/users/answer/9308623?hl=en
+
+Usage: 
+
+google forms 1FAIpQLSdqRDjIhpvL1QTk_tnfzQ-KinpnykdcdpZsI9raxQgYBdxEnA
+google doctype="forms/docs/sheets/slides" id="asdf"
+
+Forms: 
+Supply the sharecode obtained from the Google Forms >> Send button (not from the URL bar, it's different).
+Form fields, colour theme, etc. must be changed via Google's editor. (default width/height: 640 382, style="display: block; margin: auto;" aligns to centre)
+
+Docs/Sheets/Slides:
+First, open your document and goto: 
+File >> Share >> Publish to web
+and make it publicly available.
+Then, supply the sharecode obtained from the Google Docs/Sheets/Slides "Publish to web" tab 
+(NB it is not the same as the document URL or sharing link!!!)
+Edit the document via Google's editors, and as long as "Automatically republish when changes are made" is enabled, it will update wherever it is embedded. 
+(default width/height: 640 382, style="display: block; margin: auto;" aligns to centre)
+
+Drawings:
+
+google drawings asdf 		small w=480&amp;h=360
+		medium w=960&amp;h=720
+		large w=1440&amp;h=1080
+
+-->
+
+{{ if .IsNamedParams }}
+
+{{ else }}
+
+<!-- Forms -->
+	{{ if (.Get 0 | eq "forms") }}
+		<div class="embed google-forms">
+			<iframe src="https://docs.google.com/forms/d/e/{{ .Get 1 }}/viewform?embedded=true" 
+			width="100%" height="400" 
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: none; display: block; margin: auto;" >Loading Google Forms…</iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded user-editable external survey from Google Forms");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Docs -->
+	{{ if (.Get 0 | eq "docs") }}
+		<div class="embed google-docs">
+			<iframe src="https://docs.google.com/document/d/e/{{ .Get 1 }}/pub?embedded=true"
+			width="100%" height="400" 
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: none; display: block; margin: auto; box-shadow: 10px 10px 5px gray;" 
+			>Loading Google Docs…</iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external document from Google Docs");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Sheets -->
+	{{ if (.Get 0 | eq "sheets") }}
+		<div class="embed google-sheets">
+			<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSWSMqMBkgjUUVmD_Jb2RgdpKkGnOfV47_HFiEQAPJhVCuY8QYMFmqGjMEFTyepe9uZv6dUOsrjvo1n/pubhtml?widget=true&amp;headers=false"></iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external spreadsheet from Google Sheets");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Slides -->
+	{{ if (.Get 0 | eq "slides") }}
+		<div class="embed google-slides">
+			<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSWSMqMBkgjUUVmD_Jb2RgdpKkGnOfV47_HFiEQAPJhVCuY8QYMFmqGjMEFTyepe9uZv6dUOsrjvo1n/pubhtml?widget=true&amp;headers=false"></iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external slideshow from Google Slides");
+			</script>
+		{{ end }}
+	{{ end }}
+	
+<!-- Drawings -->
+	{{ if (.Get 0 | eq "drawings") }}
+		<div class="embed google-drawings">
+			<img src="https://docs.google.com/drawings/d/e/{{ .Get 1 }}/pub?
+			{{ if .Get 2 | eq "small"}}w=480&amp;h=360
+			{{ else if .Get 2 | eq "medium"}}w=960&amp;h=720
+			{{ else if .Get 2 | eq "large"}}w=1440&amp;h=1080
+			{{ else }}w=960&amp;h=720
+			{{ end }}
+			">
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external drawing from Google Drawings");
+			</script>
+		{{ end }}
+	{{ end }}
+
+{{ end }}
