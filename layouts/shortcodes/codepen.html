@@ -1,0 +1,30 @@
+<!-- CodePen shortcode for Hugo
+
+Usage: 
+codepen id
+
+preview decides whether codepen renders the output on pageload or on click
+default tab can be html, css, js
+
+-->
+
+
+{{ if .IsNamedParams }}
+	<div class="embed codepen">
+		<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/{username}/embed/preview/{codepenid}?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+		See the Pen <a href="https://codepen.io/Darthagnon/pen/dydjdRE">
+		Untitled</a> by Pepe Harambe (<a href="https://codepen.io/Darthagnon">@Darthagnon</a>)
+		on <a href="https://codepen.io">CodePen</a>.
+<		</iframe>
+	</div>
+{{ else }}
+	<div class="embed codepen">
+
+	</div>
+{{ end }}
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded external content from CodePen.io");
+	</script>
+{{ end }}
