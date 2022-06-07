@@ -61,6 +61,7 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- [Paypal](https://www.paypal.com/buttons/)
 	- [Patreon](https://www.patreon.com/dashboard/widgets)
 	- [GoFundMe](https://support.gofundme.com/hc/en-gb/articles/203604554-Adding-a-GoFundMe-Widget-to-a-Blog-or-Website)
+	- JSFiddle & Codepen (looks complicated)
 - **Possibly better implemented per-site theme?**
 	- [Google ads?](https://support.google.com/adsense/answer/9190028?hl=en)
 	- Matrix for comments or livechat? [Might](https://live.hello-matrix.net/generate.html) or [might not](https://github.com/vector-im/element-web/issues/6078) be possible to embed, or it might be 
