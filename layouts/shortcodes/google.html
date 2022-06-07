@@ -1,0 +1,239 @@
+<!-- Google Forms/Docs/Sheets/Slides/Drawings/Drive - embeddable surveys, documents, drawings and files
+Forms: https://forms.google.com/
+Docs: https://docs.google.com/document/
+Sheets: https://docs.google.com/spreadsheets/
+Slides: https://docs.google.com/presentation/
+Drawings: https://docs.google.com/drawings/
+Drive: https://drive.google.com/
+
+Google Drive/Docs/Sheets/Slides/Forms/Sites and respective logos are trademarks of Google Inc. Use of this trademark is subject to Google Permissions.
+
+--------------------------------------------
+https://stackoverflow.com/questions/16041643/remove-scroll-bar-from-iframe/19724938
+https://www.w3schools.com/css/css3_shadows_box.asp
+https://www.geeksforgeeks.org/how-to-apply-css-property-to-an-iframe/
+https://stackoverflow.com/questions/40082653/image-over-iframe-in-html
+https://gohugo.io/templates/shortcode-templates/
+https://codepen.io/ethaizone/pen/rOGEow
+https://www.w3schools.com/howto/howto_css_button_on_image.asp
+Add forms and surveys to your site
+https://support.google.com/a/users/answer/9308623?hl=en
+
+Known bugs:
+- Incompatible with, and pollutes, "Reader View" in Brave (and probably everywhere else)
+- Icon alignment is px-based, rather than viewport or % based, so icons will probably mess up on different display sizes and/or themes.
+- Service icons are misaligned on resizing. Need different CSS
+
+Usage: 
+
+google forms 1FAIpQLSdqRDjIhpvL1QTk_tnfzQ-KinpnykdcdpZsI9raxQgYBdxEnA
+google doctype="forms/docs/sheets/slides/drawings" publishcode="asdf" sheetsgid="1822055308" size="small/medium/large" height="640" 
+
+Forms: 
+Supply the sharecode obtained from the Google Forms >> Send button (not from the URL bar, it's different).
+Form fields, colour theme, etc. must be changed via Google's editor. (default width/height: 640 382, style="display: block; margin: auto;" aligns to centre)
+There's no easy way to auto-set iframe height (https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using)
+so height must be specified if you don't want double scrollbars.
+
+border param will give your form a border (useful if it's scrollable)
+
+Docs/Sheets/Slides:
+First, open your document and goto: 
+File >> Share >> Publish to web
+and make it publicly available.
+Then, supply the sharecode obtained from the Google Docs/Sheets/Slides "Publish to web" tab 
+(NB it is not the same as the document URL or sharing link!!!)
+Edit the document via Google's editors, and as long as "Automatically republish when changes are made" is enabled, it will update wherever it is embedded. 
+(default width/height: 640 382, style="display: block; margin: auto;" aligns to centre)
+
+Drawings:
+
+google drawings publishcode 		small w=480&amp;h=360
+		medium w=960&amp;h=720
+		large w=1440&amp;h=1080
+Menu option is in a different location:
+File >> Publish to web
+
+Sheets:
+google sheets publishcode gid
+If you are sharing only a single page of a sheet, you need to get the "gid" parameter from the sharing iframe URL
+
+TODO: add gid query to NamedParams (no logic I can think of that will get it from positional params):
+{{ if .Get "sheetsgid" }}gid={{ .Get "sheetsgid" }}&amp;single=true&amp;{{ else }}{{ end }}
+
+Slides:
+Menu option is in a different location (10/10 consistency, Google)
+File >> Publish to web
+
+TODO: Add time, autostart, loop controls later
+Durations (ms):
+1000
+2000
+3000
+5000
+10000
+15000
+30000
+60000
+
+Drive:
+Make sure file is public, and copy the file ID from the URL (the only one here that supports this). Should work to embed arbitrary media and files
+https://developers.google.com/drive/api/guides/branding
+https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2020q4_color_2x_web_64dp.png
+
+
+-->
+
+{{ if .IsNamedParams }}
+
+<!-- TODO: Add named params version of the below, once finished -->
+
+{{ else }}
+
+<!-- Forms -->
+	{{ if (.Get 0 | eq "forms") }}
+		<div class="embed google-forms">
+			<iframe src="https://docs.google.com/forms/d/e/{{ .Get 1 }}/viewform?embedded=true" 
+			width="100%" 
+			{{ if .Get 2 | eq "small"}}height="150" 
+			{{ else if .Get 2 | eq "medium"}}height="720"
+			{{ else if .Get 2 | eq "large"}}height="1080"
+			{{ else }}height="400"
+			{{ end }}
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: {{ with or (and (len .Params | eq 4) (.Get 3 | eq "border")) (and (len .Params | eq 3) (.Get 2 | eq "border")) }}2px solid lightgray{{ else }}none{{end}}; display: block; margin: auto;" 
+			>Loading Google Forms…</iframe>
+			<a href="https://docs.google.com/forms/">
+			<img alt="Google Forms" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png">
+			</a>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded user-editable external survey from Google Forms");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Docs -->
+	{{ if (.Get 0 | eq "docs") }}
+		<div class="embed google-docs">
+			<iframe src="https://docs.google.com/document/d/e/{{ .Get 1 }}/pub?embedded=true"
+			width="100%" 
+			{{ if .Get 2 | eq "small"}}height="150"
+			{{ else if .Get 2 | eq "medium"}}height="720"
+			{{ else if .Get 2 | eq "large"}}height="1080"
+			{{ else if .Get 2 | eq "custom"}}height="{{ .Get 3 }}"
+			{{ else }}height="400"
+			{{ end }}
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
+			>Loading Google Docs…</iframe>
+			<a href="https://docs.google.com/document/">
+			<img alt="Google Docs" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png">
+			</a>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external document from Google Docs");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Sheets -->
+	{{ if (.Get 0 | eq "sheets") }}
+		<div class="embed google-sheets">
+			<a href="https://docs.google.com/spreadsheets/">
+			<img alt="Google Sheets" style="top: 32px; right: -4px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png">
+			</a>
+			<iframe src="https://docs.google.com/spreadsheets/d/e/{{ .Get 1 }}/pubhtml?widget=true&amp;headers=false"
+			width="100%" 
+			{{ if .Get 2 | eq "small"}}height="150"
+			{{ else if .Get 2 | eq "medium"}}height="720"
+			{{ else if .Get 2 | eq "large"}}height="1080"
+			{{ else if .Get 2 | eq "custom"}}height="{{ .Get 3 }}"
+			{{ else }}height="400"
+			{{ end }}			
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			>Loading Google Sheets…</iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external spreadsheet from Google Sheets");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Slides -->
+	{{ if (.Get 0 | eq "slides") }}
+		<div class="embed google-slides">
+			<iframe src="https://docs.google.com/presentation/d/e/{{ .Get 1 }}/embed?start=false&loop=false&delayms=3000"
+			frameborder="0"  
+			{{ if .Get 2 | eq "small" }}width="480" height="299" 
+			{{ else if .Get 2 | eq "medium" }}width="960" height="569" 
+			{{ else if .Get 2 | eq "large" }}width="1440" height="839" 
+			{{ else if .Get 2 | eq "custom" }}width="{{ .Get 3 }}" height="{{ .Get 4 }}"
+			{{ else }}width="100%" 
+			{{ end }}
+			allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			>Loading Google Slides…</iframe>
+			<a href="https://docs.google.com/presentation/">
+			<img alt="Google Slides" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png">
+			</a>	
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external slideshow from Google Slides");
+			</script>
+		{{ end }}
+	{{ end }}
+	
+<!-- Drawings -->
+	{{ if (.Get 0 | eq "drawings") }}
+		<div class="embed google-drawings">
+			<img src="https://docs.google.com/drawings/d/e/{{ .Get 1 }}/pub?
+			{{ if .Get 2 | eq "small"}}w=480&amp;h=360
+			{{ else if .Get 2 | eq "medium"}}w=960&amp;h=720
+			{{ else if .Get 2 | eq "large"}}w=1440&amp;h=1080
+			{{ else if .Get 2 | eq "custom"}}w={{ .Get 3 }}&amp;h={{ .Get 4 }}
+			{{ else }}w=960&amp;h=720
+			{{ end }}" 
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			alt="Image loaded from Google Drawings…">
+			<a href="https://docs.google.com/drawings/">
+			<img alt="Google Drawings" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/drawings_48dp.png">
+			</a>	
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external image from Google Drawings");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Drive -->
+{{ if (.Get 0 | eq "drive") }}
+		<div class="embed google-drive">
+		<a href="https://drive.google.com/">
+			<img alt="Google Drive" style="bottom: -50px; right: 32px; position:relative; z-index:9; float: right;" height="32" src="/img/logos/Google_Drive_logo_(2014-2020).png">
+			</a>
+			<iframe src="https://drive.google.com/file/d/{{ .Get 1 }}/preview" 
+			{{ if .Get 2 | eq "small"}}width="640" height="480" 
+			{{ else if .Get 2 | eq "medium"}}width="1024" height="768" 
+			{{ else if .Get 2 | eq "large"}}width="800" height="960" 
+			{{ else if .Get 2 | eq "custom"}}width="{{ .Get 3 }}" height="{{ .Get 4 }}" 
+			{{ else }}width="100%" height="400"
+			{{ end }}
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative;"
+			allow="autoplay">Loading from Google Drive…</iframe>
+		</div>
+			{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external file from Google Drive");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Sites
+https://sites.google.com/new
+https://www.gstatic.com/images/branding/product/1x/sites_2020q4_48dp.png -->
+
+{{ end }}
