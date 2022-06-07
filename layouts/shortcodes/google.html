@@ -6,7 +6,6 @@ Slides: https://docs.google.com/presentation/
 Drawings: https://docs.google.com/drawings/
 Drive: https://drive.google.com/
 
-
 Google Drive/Docs/Sheets/Slides/Forms/Sites and respective logos are trademarks of Google Inc. Use of this trademark is subject to Google Permissions.
 
 --------------------------------------------
@@ -104,7 +103,7 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: {{ with or (and (len .Params | eq 4) (.Get 3 | eq "border")) (and (len .Params | eq 3) (.Get 2 | eq "border")) }}2px solid lightgray{{ else }}none{{end}}; display: block; margin: auto;" 
 			>Loading Google Forms…</iframe>
 			<a href="https://docs.google.com/forms/">
-			<img alt="Google Forms" style="top:-48px; right:-112px; position:relative; z-index:9; float: left;" height="28" src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png">
+			<img alt="Google Forms" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png">
 			</a>
 		</div>
 		{{ if .Site.Params.debug }}
@@ -128,7 +127,7 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
 			>Loading Google Docs…</iframe>
 			<a href="https://docs.google.com/document/">
-			<img alt="Google Docs" style="top:-53px; right:0px; position:relative; z-index:9; float: left;" src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png">
+			<img alt="Google Docs" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png">
 			</a>
 		</div>
 		{{ if .Site.Params.debug }}
@@ -141,6 +140,9 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 <!-- Sheets -->
 	{{ if (.Get 0 | eq "sheets") }}
 		<div class="embed google-sheets">
+			<a href="https://docs.google.com/spreadsheets/">
+			<img alt="Google Sheets" style="top: 32px; right: -4px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png">
+			</a>
 			<iframe src="https://docs.google.com/spreadsheets/d/e/{{ .Get 1 }}/pubhtml?widget=true&amp;headers=false"
 			width="100%" 
 			{{ if .Get 2 | eq "small"}}height="150"
@@ -151,9 +153,6 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			{{ end }}			
 			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
 			>Loading Google Sheets…</iframe>
-			<a href="https://docs.google.com/spreadsheets/">
-			<img alt="Google Sheets" style="top:-53px; right:0px; position:relative; z-index:9; float: left;" src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png">
-			</a>
 		</div>
 		{{ if .Site.Params.debug }}
 			<script>
@@ -177,7 +176,7 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
 			>Loading Google Slides…</iframe>
 			<a href="https://docs.google.com/presentation/">
-			<img alt="Google Slides" style="top:-36px; left:-11.4%; position:relative; z-index:9; float: right;" height="34" src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png">
+			<img alt="Google Slides" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png">
 			</a>	
 		</div>
 		{{ if .Site.Params.debug }}
@@ -200,7 +199,7 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
 			alt="Image loaded from Google Drawings…">
 			<a href="https://docs.google.com/drawings/">
-			<img alt="Google Drawings" style="top:-50px; left:150px; position:relative; z-index:9; float: left;" src="https://www.gstatic.com/images/branding/product/1x/drawings_48dp.png">
+			<img alt="Google Drawings" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/drawings_48dp.png">
 			</a>	
 		</div>
 		{{ if .Site.Params.debug }}
@@ -213,6 +212,9 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 <!-- Drive -->
 {{ if (.Get 0 | eq "drive") }}
 		<div class="embed google-drive">
+		<a href="https://drive.google.com/">
+			<img alt="Google Drive" style="bottom: -50px; right: 32px; position:relative; z-index:9; float: right;" height="32" src="/img/logos/Google_Drive_logo_(2014-2020).png">
+			</a>
 			<iframe src="https://drive.google.com/file/d/{{ .Get 1 }}/preview" 
 			{{ if .Get 2 | eq "small"}}width="640" height="480" 
 			{{ else if .Get 2 | eq "medium"}}width="1024" height="768" 
@@ -222,9 +224,6 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 			{{ end }}
 			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative;"
 			allow="autoplay">Loading from Google Drive…</iframe>
-			<a href="https://drive.google.com/">
-			<img alt="Google Drive" style="bottom:940px; right:80px; position:relative; z-index:9; float: right;" height="34" src="/img/logos/Google_Drive_logo_(2014-2020).png">
-			</a>
 		</div>
 			{{ if .Site.Params.debug }}
 			<script>
