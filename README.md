@@ -34,12 +34,13 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 ## TODO
 - ~~Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?~~
 - Add more detailed example documentation (copy from HTML)
+- Add [alt text to all iframes](https://jkorpela.fi/html/iframe.html)
 - **High priority shortcodes**:
 	- Embeddable RSS feed
 	- Magic: the Gathering hovercards (via Scryfall and TappedOut APIs?)
-	- Embeddable Google Forms (and alternatives, e.g. Formspree)
+	- ~~Embeddable Google Forms and Docs/Drive~~ (and alternatives, e.g. Formspree)
 	- Embeddable local JS MP3 player (where did I see that good one?!)
-	- Embeddable PDF.js
+	- Embeddable PDF.js (~~embeddable PDFs from Google Drive~~)
 	- Embeddable [OpenSea NFTs](https://docs.opensea.io/docs/embeds)
 	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
 	- Embeddable Soundcloud
@@ -48,6 +49,7 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Telegram
 	- Discord Guild badge/memberlist widget
 	- Unsplash
+	- Thingiverse
 - **Low priority shortcodes**
 	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed))
 	- Gfycat
@@ -56,6 +58,9 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- [Facebook?](https://developers.facebook.com/docs/plugins/)
 	- [Etsy](https://www.etsy.com/widgets)
 	- [Pinterest](https://developers.pinterest.com/tools/widget-builder/?), TikTok, Twitch (these are 💩 and I have no idea why anyone would use them)
+	- [Paypal](https://www.paypal.com/buttons/)
+	- [Patreon](https://www.patreon.com/dashboard/widgets)
+	- [GoFundMe](https://support.gofundme.com/hc/en-gb/articles/203604554-Adding-a-GoFundMe-Widget-to-a-Blog-or-Website)
 - **Possibly better implemented per-site theme?**
 	- [Google ads?](https://support.google.com/adsense/answer/9190028?hl=en)
 	- Matrix for comments or livechat? [Might](https://live.hello-matrix.net/generate.html) or [might not](https://github.com/vector-im/element-web/issues/6078) be possible to embed, or it might be 
@@ -65,3 +70,8 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 ## Further Reading
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
+- See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/) (and also on the [official English site](https://gohugo.io/templates/shortcode-templates/))
+- ... and their [recommended examples from spf13.com](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
+- [The shortcodes directory for the Hugo docs](https://github.com/gohugoio/hugo/tree/master/docs/layouts/shortcodes)
+- Hugo also ships with built-in shortcodes for common use cases. (See [Content Management: Shortcodes](https://gohugo.io/content-management/shortcodes/).)
+- Look in `/layouts/shortcodes` in your favourite or most-feature-heavy themes, there are good shortcodes there, too, but it is inefficient to implement shortcodes for 1 theme only
