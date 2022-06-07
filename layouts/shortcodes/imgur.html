@@ -6,20 +6,20 @@ Usage:
 imgur asdf1234 
 imgur imgId="asdf1234" 
 
-Warning: Imgur iframe loads invasive Facebook, Alexa and Quantcast scripts. GIFs/Videos will autoplay.
+Warning: Imgur iframe loads invasive Facebook, Alexa and Quantserve scripts. GIFs/Videos will autoplay.
 I recommend you save the images/GIFs locally and serve them statically.
 
 -->
 
 {{ if .IsNamedParams }}
-	<div embed imgur>
+	<div embed imgur style="text-align: center;">
 
-	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get "imgID" }}" ></blockquote>
+	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get "imgID" }}" text-align="center"></blockquote>
 	<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 	</div>
 {{ else }}
-	<div embed imgur>
+	<div embed imgur style="text-align: center;">
 
 	<blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ .Get 0}}" ></blockquote>
 	<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
@@ -29,6 +29,7 @@ I recommend you save the images/GIFs locally and serve them statically.
 
 {{ if .Site.Params.debug }}
 	<script>
-		console.log("Loaded external cat pictures from Imgur:");
+		console.log("Loaded external cat pictures from Imgur (and tracking scripts from Alexametrics, Facebook and Quantserve)");
+		console.log("Just download the pictures/GIFs and serve them locally already!");
 	</script>
 {{ end }}
