@@ -50,6 +50,8 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Discord Guild badge/memberlist widget
 	- Unsplash
 	- Thingiverse
+	- DocumentCloud ([Homepage](https://www.documentcloud.org/home), [GitHub](https://github.com/muckrock/documentcloud), [Legacy GitHub iframe src](https://github.com/documentcloud/documentcloud/blob/master/app/views/authentication/iframe.html.erb)) (see `view-source:https://embed.documentcloud.org/documents/22058315-is-lamda-sentient-an-interview/?embed=1&responsive=1&title=1` and [here](https://embed.documentcloud.org/help/tips#wordpress-tips))
+	- M$ OneDrive/SharePoint document embeds
 - **Low priority shortcodes**
 	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed))
 	- Gfycat
@@ -75,4 +77,5 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 - ... and their [recommended examples from spf13.com](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
 - [The shortcodes directory for the Hugo docs](https://github.com/gohugoio/hugo/tree/master/docs/layouts/shortcodes)
 - Hugo also ships with built-in shortcodes for common use cases. (See [Content Management: Shortcodes](https://gohugo.io/content-management/shortcodes/).)
+- [Hugo relative link shortcodes](https://gohugo.io/content-management/cross-references/)
 - Look in `/layouts/shortcodes` in your favourite or most-feature-heavy themes, there are good shortcodes there, too, but it is inefficient to implement shortcodes for 1 theme only
