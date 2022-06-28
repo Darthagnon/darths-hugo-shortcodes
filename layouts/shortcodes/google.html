@@ -29,7 +29,7 @@ Known bugs:
 Usage: 
 
 google forms 1FAIpQLSdqRDjIhpvL1QTk_tnfzQ-KinpnykdcdpZsI9raxQgYBdxEnA
-google doctype="forms/docs/sheets/slides/drawings" publishcode="asdf" sheetsgid="1822055308" size="small/medium/large" height="640" 
+google doctype="forms/docs/sheets/slides/drawings" publishcode="asdf" sheetsgid="1822055308" size="small/medium/large" height="640" width="480" url="Google Drive editing URL"
 
 Forms: 
 Supply the sharecode obtained from the Google Forms >> Send button (not from the URL bar, it's different).
@@ -62,8 +62,8 @@ Sheets:
 google sheets publishcode gid
 If you are sharing only a single page of a sheet, you need to get the "gid" parameter from the sharing iframe URL
 
-TODO: add gid query to NamedParams (no logic I can think of that will get it from positional params):
-{{ if .Get "sheetsgid" }}gid={{ .Get "sheetsgid" }}&amp;single=true&amp;{{ else }}{{ end }}
+TODO: add gid query to PositionalParams (no logic I can think of that will get it...). NamedParams::
+{{ if .Get "sheetsgid" }};gid={{ .Get "sheetsgid" }}&amp;single=true&amp;{{ else }}{{ end }}
 
 Slides:
 Menu option is in a different location (10/10 consistency, Google)
@@ -90,7 +90,147 @@ https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2
 
 {{ if .IsNamedParams }}
 
-<!-- TODO: Add named params version of the below, once finished -->
+<!-- Forms -->
+	{{ if (.Get "doctype" | eq "forms") }}
+		<div class="embed google-forms">
+			<iframe src="https://docs.google.com/forms/d/e/{{ .Get "publishcode" }}/viewform?embedded=true" 
+			width="100%" 
+			{{ if .Get "size" | eq "small"}}height="150" 
+			{{ else if .Get "size" | eq "medium"}}height="720"
+			{{ else if .Get "size" | eq "large"}}height="1080"
+			{{ else }}height="400"
+			{{ end }}
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: {{ if .Get "border" }}2px solid lightgray{{ else }}none{{end}}; display: block; margin: auto;" 
+			>Loading Google Forms…</iframe>
+			<a href="{{ .Get "url" }}">
+			<img alt="Google Forms" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/forms_2020q4_48dp.png">
+			</a>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded user-editable external survey from Google Forms");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Docs -->
+	{{ if (.Get "doctype" | eq "docs") }}
+		<div class="embed google-docs">
+			<iframe src="https://docs.google.com/document/d/e/{{ .Get "publishcode" }}/pub?embedded=true"
+			width="100%" 
+			{{ if .Get "size" | eq "small"}}height="150"
+			{{ else if .Get "size" | eq "medium"}}height="720"
+			{{ else if .Get "size" | eq "large"}}height="1080"
+			{{ else if .Get "size" | eq "custom"}}height="{{ .Get "height" }}"
+			{{ else }}height="400"
+			{{ end }}
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
+			>Loading Google Docs…</iframe>
+			<a href="{{ .Get "url" }}">
+			<img alt="Google Docs" style="top:-36px; position:relative; z-index:9; float: left;" height="32" src="https://www.gstatic.com/images/branding/product/1x/docs_2020q4_48dp.png">
+			</a>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external document from Google Docs");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Sheets -->
+	{{ if (.Get "doctype" | eq "sheets") }}
+		<div class="embed google-sheets">
+			<a href="{{ .Get "url" }}">
+			<img alt="Google Sheets" style="top: 32px; right: -4px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/sheets_2020q4_48dp.png">
+			</a>
+			<iframe src="https://docs.google.com/spreadsheets/d/e/{{ .Get "publishcode" }}/pubhtml?widget=true&amp;headers=false{{ if .Get "sheetsgid" }};gid={{ .Get "sheetsgid" }}&amp;single=true&amp;{{ else }}{{ end }}"
+			width="100%" 
+			{{ if .Get "size" | eq "small"}}height="150"
+			{{ else if .Get "size" | eq "medium"}}height="720"
+			{{ else if .Get "size" | eq "large"}}height="1080"
+			{{ else if .Get "size" | eq "custom"}}height="{{ .Get "height" }}"
+			{{ else }}height="400"
+			{{ end }}			
+			frameborder="0" marginheight="0" marginwidth="0" scrolling="yes" style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			>Loading Google Sheets…</iframe>
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external spreadsheet from Google Sheets");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Slides -->
+	{{ if (.Get "doctype" | eq "slides") }}
+		<div class="embed google-slides">
+			<iframe src="https://docs.google.com/presentation/d/e/{{ .Get "publishcode" }}/embed?start=false&loop=false&delayms=3000"
+			frameborder="0"  
+			{{ if .Get "size" | eq "small" }}width="480" height="299" 
+			{{ else if .Get "size" | eq "medium" }}width="960" height="569" 
+			{{ else if .Get "size" | eq "large" }}width="1440" height="839" 
+			{{ else if .Get "size" | eq "custom" }}width="{{ .Get "width" }}" height="{{ .Get "height" }}"
+			{{ else }}width="100%" 
+			{{ end }}
+			allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			>Loading Google Slides…</iframe>
+			<a href="{{ .Get "url" }}">
+			<img alt="Google Slides" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/slides_2020q4_48dp.png">
+			</a>	
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external slideshow from Google Slides");
+			</script>
+		{{ end }}
+	{{ end }}
+	
+<!-- Drawings -->
+	{{ if (.Get "doctype" | eq "drawings") }}
+		<div class="embed google-drawings">
+			<img src="https://docs.google.com/drawings/d/e/{{ .Get "publishcode" }}/pub?
+			{{ if .Get "size" | eq "small"}}w=480&amp;h=360
+			{{ else if .Get "size" | eq "medium"}}w=960&amp;h=720
+			{{ else if .Get "size" | eq "large"}}w=1440&amp;h=1080
+			{{ else if .Get "size" | eq "custom"}}w={{ .Get "width" }}&amp;h={{ .Get "height" }}
+			{{ else }}w=960&amp;h=720
+			{{ end }}" 
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+			alt="Image loaded from Google Drawings…">
+			<a href="{{ .Get "url" }}">
+			<img alt="Google Drawings" style="top:-36px; position:relative; z-index:9; float: right;" height="32" src="https://www.gstatic.com/images/branding/product/1x/drawings_48dp.png">
+			</a>	
+		</div>
+		{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external image from Google Drawings");
+			</script>
+		{{ end }}
+	{{ end }}
+
+<!-- Drive -->
+{{ if (.Get "doctype" | eq "drive") }}
+		<div class="embed google-drive">
+		<a href="{{ .Get "url" }}">
+			<img alt="Google Drive" style="bottom: -50px; right: 32px; position:relative; z-index:9; float: right;" height="32" src="/img/logos/Google_Drive_logo_(2014-2020).png">
+			</a>
+			<iframe src="https://drive.google.com/file/d/{{ .Get "publishcode" }}/preview" 
+			{{ if .Get "size" | eq "small"}}width="640" height="480" 
+			{{ else if .Get "size" | eq "medium"}}width="1024" height="768" 
+			{{ else if .Get "size" | eq "large"}}width="800" height="960" 
+			{{ else if .Get "size" | eq "custom"}}width="{{ .Get "width" }}" height="{{ .Get "height" }}" 
+			{{ else }}width="100%" height="400"
+			{{ end }}
+			style="max-width: 100%; border: 1px solid lightgray; display: block; margin: auto; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative;"
+			allow="autoplay">Loading from Google Drive…</iframe>
+		</div>
+			{{ if .Site.Params.debug }}
+			<script>
+				console.log("Loaded external file from Google Drive");
+			</script>
+		{{ end }}
+	{{ end }}
 
 {{ else }}
 
