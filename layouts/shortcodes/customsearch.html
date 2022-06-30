@@ -1,0 +1,41 @@
+<!-- Embeddable custom Google search box
+Usage:
+
+1) Create  a custom Google search crawler at:
+https://programmablesearchengine.google.com/about/
+http://cse.google.com/
+2) Configure the sites searched, look and feel of the search engine, etc. on the Google page. THERE ARE NO CUSTOMISATION PARAMETERS, ALL CHANGES MADE ON THE GOOGLE PAGE!
+3) Include this shortcode to embed the search engine and results within a page of your website:
+customsearch 6a7e8ecd7f1c48995
+or
+customsearch cx="6a7e8ecd7f1c48995"
+
+... where the long number is the search engine ID. You can get the search engine ID from the URL of the Google page; example:
+https://programmablesearchengine.google.com/cse/create/getcode?cx=6a7e8ecd7f1c48995
+
+I'm using as an example a UK job metasearch I made, available at https://tinyurl.com/uk-jobs
+
+NB. You will get Google ads and tracking in the search engine, unless you use an ad-blocker like uBlock Origin, Privaxy or Brave (these will block ads and mitigate tracking to some exttent)
+
+List of your created custom search engines:
+https://programmablesearchengine.google.com/cse/all
+
+-->
+
+{{ if .IsNamedParams }}
+	<div class=custom google search>
+		<script async src="https://cse.google.com/cse.js?cx={{ .Get "cx" }}"></script>
+		<div class="gcse-search"></div>
+	</div>
+{{ else }}
+	<div class=custom google search>
+		<script async src="https://cse.google.com/cse.js?cx={{ .Get 0 }}"></script>
+		<div class="gcse-search"></div>
+	</div>
+{{ end }}
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded custom search engine from Google.com. Use ad-blockers to avoid Google Ads and Analytics.");
+	</script>
+{{ end }}
