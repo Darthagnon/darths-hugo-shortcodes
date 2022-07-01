@@ -23,12 +23,12 @@ https://programmablesearchengine.google.com/cse/all
 -->
 
 {{ if .IsNamedParams }}
-	<div class=custom google search>
+	<div class=search google>
 		<script async src="https://cse.google.com/cse.js?cx={{ .Get "cx" }}"></script>
 		<div class="gcse-search"></div>
 	</div>
 {{ else }}
-	<div class=custom google search>
+	<div class=search google>
 		<script async src="https://cse.google.com/cse.js?cx={{ .Get 0 }}"></script>
 		<div class="gcse-search"></div>
 	</div>
