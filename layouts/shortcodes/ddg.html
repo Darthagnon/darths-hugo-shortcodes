@@ -1,0 +1,48 @@
+<!-- Embeddable DuckDuckGo search box
+https://web.archive.org/web/20200310215833/https://duckduckgo.com/search_box
+https://www.aozata.com/free-duckduckgo-custom-search-engine/
+https://duckduckgo.com/params
+
+DDG is a privacy-friendly search engine, which offers embedded search boxes as a deprecated feature (that still works).
+
+Usage:
+
+ddg site="site1.com" [ prefill="Search my site(s)" width="550px" theme="contrast/retro/dark/terminal/[unspecified]" ads="false" ]
+
+All [square brackets] params are optional; supplying "ads" parameter will disable ads.
+
+DuckDuckGo License:
+
+If using search parameters for any other purpose beyond individual use (e.g. for apps/extensions), please do not remove our branding (ko, kr params etc.) or advertising (k1, k4 params etc.) as we have contracts in place that we would be violating if you did so.
+
+Because of the way we generate our search results, we do not have the syndication rights to allow you to host our results on your site (e.g. in a frame). When your users click on the results they will be instead taken to our site. 
+
+Please see our partnerships page for more info on guidelines and getting in touch with us.
+
+---------
+
+TODO??? 
+
+- add !bangs support for direct-searching sites https://duckduckgo.com/bang (you can submit your own, but it is subject to approval by DuckDuckGo)
+- according to the documentation (now archived), you should be able to speficy multiple sites via site:abc.com,asdf.org, but this does not work (https://www.reddit.com/r/duckduckgo/comments/l1zym8/site_search_for_multiple_sites/)
+- I can't figure out how to specify cursor focus (again, documentation is dead)
+
+-->
+
+{{ if .IsNamedParams }}
+
+	<!-- not working if out of scope<div class= search duckduckgo>
+		<iframe src="https://duckduckgo.com/search.html?site={{ .Get "site" }}{{ if .Get "prefill" }}&prefill="{{ .Get "prefill" }}{{ end }}{{if .Get "theme"}}&kae={{ if .Get "theme" | eq "contrast"}}c{{ else if .Get "theme" | eq "retro"}}r{{ else if .Get "theme" | eq "dark" }}d{{ else if .Get "theme" | eq "terminal" }}t{{ else }}-1{{ end }}{{ end }}{{ if .Get "ads" }}&k1=-1{{ end }} style="overflow:hidden;margin:0;padding:0;width:{{ if .Get "width" }}{{ .Get "width" }}{{ else }}408px{{ end }};height:60px;" frameborder="0"></iframe>
+	</div>-->
+
+{{ else }}
+	<div class= search duckduckgo>
+		<iframe src="https://duckduckgo.com/search.html?site={{ .Get 0 }}" style="overflow: hidden; margin: 0; padding: 0; width: 408px; height: 60px;" frameborder="0"></iframe>
+	</div>
+{{ end }}
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded custom search engine from DuckDuckGo. Results displayed in a new page due to licensing.");
+	</script>
+{{ end }}
