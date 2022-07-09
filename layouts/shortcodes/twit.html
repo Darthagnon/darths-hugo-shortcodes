@@ -1,0 +1,26 @@
+<!-- Twitter embeds
+https://publish.twitter.com/
+https://www.lifewire.com/useful-twitter-widgets-3486605
+https://www.tech-recipes.com/internet/twitter-internet/add-twitter-feed/
+https://www.labnol.org/internet/embed-twitter-lists-widget/13640/
+
+Hugo comes with Tweet embedding, but nothing more. 
+Twitter supports embedding profiles and all sorts of content.
+
+Embed this:
+https://twitter.com/i/lists/1288871178610921472/members
+-->
+
+{{ if .IsNamedParams }}
+
+<div class="twitter embed" >
+	<a class="twitter-timeline" 
+	href="https://twitter.com/JCPJobsPlusMore/lists/jcp-twitter-accounts?ref_src=twsrc%5Etfw">A Twitter List by JCPJobsPlusMore</a> 
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+{{ else }}
+
+<a class="twitter-timeline" href="https://twitter.com/JCPJobsPlusMore/lists/jcp-twitter-accounts?ref_src=twsrc%5Etfw">A Twitter List by JCPJobsPlusMore</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{{ end }}
