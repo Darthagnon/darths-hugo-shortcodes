@@ -1,0 +1,11 @@
+<!-- Embeddable PDF shortcode for Hugo
+Free PDF editor made by https://old.reddit.com/user/N_i_P
+Can be a generic editor (with upload/select buttnos), or embedded with a PDF URL to open it directly for editing.
+
+-->
+
+<!-- Generic editor -->
+<iframe src="https://simplePDF.eu/editor" style="border:none" height="720" width="480"></iframe>
+
+<!-- Specify a PDF URL -->
+<iframe src="https://simplePDF.eu/editor?open={{ .Get 0 }}" style="border:none" height="720" width="480"></iframe>
