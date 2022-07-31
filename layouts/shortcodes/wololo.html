@@ -1,0 +1,65 @@
+<!-- Wololo.net phpBB style shortcode for Hugo
+phpBB ProSilver theme hacking forum I enjoyed. Based off a mixture of how it looked from 2014-2016.
+-->
+
+<link rel="stylesheet" href="{{ "/css/wololo.css" | relURL }}" />
+
+<!-- wololo.net/forum Wagic forums banner ca. 2014----------------------------------------------------------------->
+
+{{ if (.Get 0 | eq "forum") }}
+
+	<div class="rectangle1">
+		<img alt="Wagic logo" src="/img/logos/wololo/Wagic_site_logo.gif" style="float: left; background-color: initial;" height="80"> </img>
+		<h1>Wagic, the Homebrew !?</h1>
+		<p>Play that card game on your favorite devices</p>
+
+	</div>
+
+{{ end }}
+
+<!-- wololo.net/talk forums banner ca. 2014----------------------------------------------------------------->
+
+{{ if (.Get 0 | eq "talk") }}
+
+	<div class="rectangle3">
+
+		<img alt="/talk forums logo" title="Board index" src="/img/logos/wololo/wololo-left.png" style="float: left; background-color: initial;" height="107" width="400"> </img>
+		<div id="right"><img alt="/talk forums logo 2" src="/img/logos/wololo/wololo-right.png" style="float: right; background-color: initial;" height="108" width="386"> </img></div>
+
+	</div>
+	<br>
+	<div class="bottom-right"><img alt="Advanced search bg" Title="Gaming community" src="/img/logos/wololo/header-bottom.png" style="float: right !important; background-color: initial; " height="47" width="240" ></img>
+		<div class="rectangle2"> <img alt="Home" src="/img/logos/wololo/icon_home.gif" style="background-color: initial;"></img> <a href="http://wololo.net/">Home</a> | <a href="http://wololo.net/downloads">Downloads</a> | <a href="http://wololo.net/talk/index.php">Board index</a> </div>
+	</div>
+
+{{ end }}
+
+<!-- wololo.net/talk forums banner ca. 2018----------------------------------------------------------------->
+
+{{ if (.Get 0 | eq "talk2") }}
+	<div class="rectangle2"> <img alt="Home" src="/img/logos/wololo/icon_home.gif" style="background-color: initial;"></img> <a href="http://wololo.net/">Home</a> | <a href="http://wololo.net/downloads">Downloads</a> | <a href="http://wololo.net/wiki">Wiki</a> | <a href="http://wololo.net/talk/index.php">Board index</a> </div>
+	</div>
+
+{{ end }}
+
+<!-- wololo.net general forum post template----------------------------------------------------------------->
+
+{{ if (.Get 0 | eq "post") }}
+	<div class="rectangle2">
+		<p>
+		{{ .Get 1 }}
+		</p>
+	</div>
+
+{{ if (.Get 0 | eq "signature") }}
+	<div class="signature">
+	<img src="/img/mhp3_travel_display.gif" alt="Monster Hunter Portable 3rd GIF" style="background-color: initial;"></img>
+
+	Like Wagic? Check out my custom themes, etc. at [viewtopic.php?f=9&t=66181](https://wololo.net/forum/viewtopic.php?f=9&t=66181)
+
+	Wololo's article: [http://wololo.net/2016/07/14/new-wagic- ... rth-agnon/](https://wololo.net/2016/07/14/new-wagic-themes-darth-agnon/)
+	</div>
+{{ end }}
+
+
+{{ end }}

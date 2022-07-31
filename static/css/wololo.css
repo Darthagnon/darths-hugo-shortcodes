@@ -1,0 +1,109 @@
+.rectangle1 {
+  height: 92px;
+  width: 100%;
+  background-color: #12A3EB;
+  background-image: url(/img/logos/wololo/bg_header.gif);
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.markdown-body h1 {
+  border-bottom: initial;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  margin-top: 15px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#header #right {
+    background: #ffffff url(/img/logos/wololo/wololo-right.png) right top no-repeat;
+    width: 386px;
+    padding: 0;
+    float: right;
+    height: 107px;
+}
+
+#header #bottom {
+    width: 100%;
+    padding: 0;
+    height: 45px;
+    overflow: hidden;
+}
+
+/* doesn't work
+img {
+	background-color: initial !important;
+}
+*/
+
+a.forumtitle {
+    color: #105289;
+}
+
+.rectangle3 {
+  height: 107px;
+  width: 100%;
+  background-color: #12A3EB;
+  background-image: url(/img/logos/wololo/centerbg.png);
+  background-size: contain;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.bottom-right {
+  position: relative;
+  bottom: 24px;
+  right: 0px;
+}
+
+.rectangle2 {
+  width: 100%;
+  background-color: #e1ebf2;
+  border-radius: 5px;
+  color: #333333;
+  padding: 10px;
+}
+
+.signature {
+  font-size: 11px;
+  margin-top: 1.5em;
+  padding-top: 0.2em;
+  border-top: 1px solid;
+  line-height: 140%;
+}
+
+a:not(.item, .ui.button) {
+    color: #2a6496;
+}
+
+.logo-transition a::before {
+    margin-right: 3px;
+    content: '{';
+    color: #FFF;
+    line-height: 16px;
+    font-family: 'BebasNeueRegular','Arial','Helvetica',sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-transform: translateX(50px);
+    -moz-transform: translateX(50px);
+    transform: translateX(50px);
+}
+
+.logo-transition a::before, .logo-transition a::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+/* use with html, gives a nice animation as used by wololo.net/talk (2018) and forum.mobilism.org
+<div class="logo-transition">
+  <a class="logo" href="">
+    ::before
+    "wololo"
+    ::after
+  </a>
+</div>
+*/
