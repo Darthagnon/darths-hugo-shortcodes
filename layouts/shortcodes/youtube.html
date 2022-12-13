@@ -1,0 +1,42 @@
+<!--
+src:
+https://discourse.gohugo.io/t/embedding-youtube-in-a-privacy-friendly-way/35784
+by jhvanderschee and Paul Irish
+
+More privacy-friendly than the default Hugo YouTube embed (no cross-origin request on pageload, only on video-click) and also embeds YouTube thumbnail for future reference, in case of removal/404.
+
+Usage:
+Requires a YouTube video and its downloaded thumbnail (use F12 Devtools to inspect the page, or jDownloader2 to download thumbnail):
+{{< youtube id="Kh1c_N2VZPc" image="/img/fallback/Kh1c_N2VZPc.jpg" >}} 
+
+ -->
+
+<a class="shortcode-youtube" href="https://www.youtube.com/watch?v={{ .Get "id" }}" title="Play Youtube video" target="_blank">
+    <img src="{{ .Get "image" }}" alt="Youtube video {{ .Get "id" }}" />
+</a>
+
+<style>
+.shortcode-youtube {
+    position: relative; display: inline-block;
+}
+.shortcode-youtube::before, .shortcode-youtube::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+} 
+.shortcode-youtube::before {
+    background: url(/img/logos/youtube/youtube_button.svg) center center / auto 4rem no-repeat;
+}
+.shortcode-youtube:hover::before {
+    background: url(/img/logos/youtube/youtube_button_hover.svg) center center / auto 4rem no-repeat;
+}
+.shortcode-youtube::after {
+    background: url(/img/logos/youtube/youtube.svg) calc(100% - 1rem) calc(100% - 1rem) / auto 2rem no-repeat;
+}
+.shortcode-youtube img {
+    display: block;
+}
+</style>

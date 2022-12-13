@@ -15,6 +15,10 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [HearThis.at](https://hearthis.at/)
 - [Deezer](https://www.deezer.com/br/)
 - [Spotify](https://open.spotify.com/)
+- Some shortcodes from [jvanderschee's Hugo Codex Add-ons](https://hugocodex.org/add-ons/):
+	- [Better YouTube]
+	- [Better Vimeo]
+	- [Lightbox]
 
 ## Usage
 
