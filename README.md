@@ -16,9 +16,9 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [Deezer](https://www.deezer.com/br/)
 - [Spotify](https://open.spotify.com/)
 - Some shortcodes from [jvanderschee's Hugo Codex Add-ons](https://hugocodex.org/add-ons/):
-	- [Better YouTube]
-	- [Better Vimeo]
-	- [Lightbox]
+	- [Better YouTube](https://hugocodex.org/add-ons/youtube-shortcode/) ([Hugo Discourse](https://discourse.gohugo.io/t/embedding-youtube-in-a-privacy-friendly-way/35784/))
+	- [Better Vimeo](https://hugocodex.org/add-ons/vimeo-shortcode/)
+	- [Lightbox](https://hugocodex.org/add-ons/lightbox/)
 
 ## Usage
 
@@ -47,3 +47,5 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Embeddable arbitrary website iframe
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
 - ... and their [recommended examples](https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes)
+- See also [React Live Chat Loader](https://github.com/calibreapp/react-live-chat-loader)
+- See also [Lite YouTube Embed](https://github.com/paulirish/lite-youtube-embed) (which Hugo Codex's implementation aims to replace, though it loads thumbnails directly from YouTube)
