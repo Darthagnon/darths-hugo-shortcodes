@@ -1,6 +1,6 @@
 const AGENDA_DAYS = 20;
-const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DAYS_OF_WEEK = getDayNames('getLang');
+const MONTHS = getMonthNames('getLang');
 let ampm = (h) => (h < 12 || h === 24) ? "am" : "pm";
 
 const url = new URL(window.location.href);
@@ -19,10 +19,32 @@ const colorBG = url.searchParams.get('colorbg') || '#FFFFFF';
 const colorText = url.searchParams.get('colortxt') || '#000000';
 const colorThemeText = url.searchParams.get('colorsecondarytxt') || '#FFFFFF';
 
+// locale detector based off StackOverflow, src: https://stackoverflow.com/questions/673905/how-to-determine-users-locale-within-browser, https://stackoverflow.com/questions/37221494/how-to-change-the-locale-in-chrome-browser
+const getLang = () => navigator.language || navigator.browserLanguage || ( navigator.languages || [ "en" ] ) [ 0 ]
+
 let today = new Date();
 today.setHours(0,0,0,0);
 let selectedDay = new Date(today.valueOf());
 let selectedView = default_view;
+
+// Localisation based off Cory LaViska's code (MIT), src: https://www.abeautifulsite.net/posts/getting-localized-month-and-day-names-in-the-browser/
+function getDayNames(locale = 'en', format = 'long') {
+  const formatter = new Intl.DateTimeFormat(locale, { weekday: format, timeZone: 'UTC' });
+  const days = [1, 2, 3, 4, 5, 6, 7].map(day => {
+    const dd = day < 10 ? `0${day}` : day;
+    return new Date(`2017-01-${dd}T00:00:00+00:00`);
+  });
+  return days.map(date => formatter.format(date));
+}
+
+function getMonthNames(locale = 'en', format = 'long') {
+  const formatter = new Intl.DateTimeFormat(locale, { month: format, timeZone: 'UTC' });
+  const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
+    const mm = month < 10 ? `0${month}` : month;
+    return new Date(`2017-${mm}-01T00:00:00+00:00`);
+  });
+  return months.map(date => formatter.format(date));
+}
 
 function getHumanDate(date) {
 	return `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2,0)}-${date.getDate().toString().padStart(2,0)}`;

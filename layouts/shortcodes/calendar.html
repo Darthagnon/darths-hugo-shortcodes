@@ -1,24 +1,23 @@
-<!--https://gra0007.github.io/modern-cal-embed/iframe.html?ical=https%3A%2F%2Fgra0007.github.io%2Fmodern-cal-embed%2Fexample.ics&title=1&nav=1&date=1&view=1&details=0&monstart=0&dview=0&color=%231A73E8&colorbg=%23FFFFFF&colortxt=%23000000&colorsecondarytxt=%23FFFFFF-->
-<!-- Usage (only required field is ical): 
-{{ calendar ical="/events.ics" }} 
+<!-- iCal embed shortcode for Hugo
+Usage (only required field is ical): 
+calendar ical="events.ics" 
 or
-{{ calendar ical="/events.ics" title=1 nav=0 date=1 view=0 details=1 monstart=0 dview=1 color="1A73E8" colorbg="FFFFFF" colortxt="000000" colorsecondarytxt="FFFFFF" height="450" }} 
+calendar ical="events.ics" title=1 nav=0 date=1 view=0 details=1 monstart=0 dview=1 color="1A73E8" colorbg="FFFFFF" colortxt="000000" colorsecondarytxt="FFFFFF" height="450"
 
-Valid for /hugo-site-dir/static/events.ics. Manually add CORS proxy for remote iCal, e.g. public Apple/Google calendars.
+Valid for /hugo-site-dir/static/events.ics. (Not yet supported) Manually add CORS proxy for remote iCal, e.g. public Apple/Google calendars.
 -->
 
 
 <div>
-	<head>
-		<!-- <title>Modern iCal Calendar Embed</title> -->
-		<!-- <meta name="description" content="Takes any ical link and displays a beautiful calendar that can be embedded onto any website. Works in agenda view and month view."> -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> -->
-		<!-- <script src="js/script.js"></script> -->
-		<!-- <link rel="stylesheet" href="css/style.css" /> -->
-	<!-- </head> -->
+	<div>
+		<title>Modern iCal Calendar Embed</title>
+		<meta name="description" content="Takes any iCal link and displays a beautiful calendar that can be embedded onto any website. Works in agenda view and month view.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		<script src="/calendar/js/script.js"></script>
+		<link rel="stylesheet" href="/calendar/css/style.css" />
+	</div>
 	<!-- Suggestion for local testing: try ./iframe.html?ical=./example.ics -->
-	<iframe src="./iframe.html?ical={{ .Get "ical" }}&title={{ if .Get "title" }}{{ .Get "title" }}{{ else }}1{{ end }}&nav={{ if .Get "nav" }}{{ .Get "nav" }}{{ else }}1{{ end }}&date={{ if .Get "date" }}{{ .Get "date" }}{{ else }}1{{ end }}&view={{ if .Get "view" }}{{ .Get "view" }}{{ else }}1{{ end }}&details={{ if .Get "details" }}{{ .Get "details" }}{{ else }}0{{ end }}&monstart={{ if .Get "monstart" }}{{ .Get "monstart" }}{{ else }}0{{ end }}&dview={{ if .Get "dview" }}{{ .Get "dview" }}{{ else }}0{{ end }}&color=%23{{ if .Get "color" }}{{ .Get "color" }}{{ else }}1A73E8{{ end }}&colorbg=%23{{ if .Get "colorbg" }}{{ .Get "colorbg" }}{{ else }}FFFFFF{{ end }}&colortxt=%23{{ if .Get "colortxt" }}{{ .Get "colortxt" }}{{ else }}000000{{ end }}&colorsecondarytxt=%23{{ if .Get "colorsecondarytxt" }}{{ .Get "colorsecondarytxt" }}{{ else }}FFFFFF{{ end }}" id="iframe" height="{{ if .Get "height" }}{{ .Get "height" }}{{ else }}450{{ end }}px"></iframe>
-
-
+	<!-- Missing feature: remote iCals -->
+	<iframe src="/calendar/iframe.html?ical=/{{ .Get "ical" }}&title={{ if .Get "title" }}{{ .Get "title" }}{{ else }}1{{ end }}&nav={{ if .Get "nav" }}{{ .Get "nav" }}{{ else }}1{{ end }}&date={{ if .Get "date" }}{{ .Get "date" }}{{ else }}1{{ end }}&view={{ if .Get "view" }}{{ .Get "view" }}{{ else }}1{{ end }}&details={{ if .Get "details" }}{{ .Get "details" }}{{ else }}0{{ end }}&monstart={{ if .Get "monstart" }}{{ .Get "monstart" }}{{ else }}0{{ end }}&dview={{ if .Get "dview" }}{{ .Get "dview" }}{{ else }}0{{ end }}&color=%23{{ if .Get "color" }}{{ .Get "color" }}{{ else }}1A73E8{{ end }}&colorbg=%23{{ if .Get "colorbg" }}{{ .Get "colorbg" }}{{ else }}FFFFFF{{ end }}&colortxt=%23{{ if .Get "colortxt" }}{{ .Get "colortxt" }}{{ else }}000000{{ end }}&colorsecondarytxt=%23{{ if .Get "colorsecondarytxt" }}{{ .Get "colorsecondarytxt" }}{{ else }}FFFFFF{{ end }}" id="iframe" height="{{ if .Get "height" }}{{ .Get "height" }}{{ else }}450{{ end }}px"></iframe>
 </div>
 
