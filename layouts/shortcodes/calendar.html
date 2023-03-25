@@ -1,76 +1,24 @@
-<!DOCTYPE html>
-<html>
+<!--https://gra0007.github.io/modern-cal-embed/iframe.html?ical=https%3A%2F%2Fgra0007.github.io%2Fmodern-cal-embed%2Fexample.ics&title=1&nav=1&date=1&view=1&details=0&monstart=0&dview=0&color=%231A73E8&colorbg=%23FFFFFF&colortxt=%23000000&colorsecondarytxt=%23FFFFFF-->
+<!-- Usage (only required field is ical): 
+{{ calendar ical="/events.ics" }} 
+or
+{{ calendar ical="/events.ics" title=1 nav=0 date=1 view=0 details=1 monstart=0 dview=1 color="1A73E8" colorbg="FFFFFF" colortxt="000000" colorsecondarytxt="FFFFFF" height="450" }} 
+
+Valid for /hugo-site-dir/static/events.ics. Manually add CORS proxy for remote iCal, e.g. public Apple/Google calendars.
+-->
+
+
+<div>
 	<head>
-		<title>Modern iCal Calendar Embed</title>
-		<meta name="description" content="Takes any ical link and displays a beautiful calendar that can be embedded onto any website. Works in agenda view and month view.">
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		<!-- <title>Modern iCal Calendar Embed</title> -->
+		<!-- <meta name="description" content="Takes any ical link and displays a beautiful calendar that can be embedded onto any website. Works in agenda view and month view."> -->
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> -->
+		<!-- <script src="js/script.js"></script> -->
+		<!-- <link rel="stylesheet" href="css/style.css" /> -->
+	<!-- </head> -->
+	<!-- Suggestion for local testing: try ./iframe.html?ical=./example.ics -->
+	<iframe src="./iframe.html?ical={{ .Get "ical" }}&title={{ if .Get "title" }}{{ .Get "title" }}{{ else }}1{{ end }}&nav={{ if .Get "nav" }}{{ .Get "nav" }}{{ else }}1{{ end }}&date={{ if .Get "date" }}{{ .Get "date" }}{{ else }}1{{ end }}&view={{ if .Get "view" }}{{ .Get "view" }}{{ else }}1{{ end }}&details={{ if .Get "details" }}{{ .Get "details" }}{{ else }}0{{ end }}&monstart={{ if .Get "monstart" }}{{ .Get "monstart" }}{{ else }}0{{ end }}&dview={{ if .Get "dview" }}{{ .Get "dview" }}{{ else }}0{{ end }}&color=%23{{ if .Get "color" }}{{ .Get "color" }}{{ else }}1A73E8{{ end }}&colorbg=%23{{ if .Get "colorbg" }}{{ .Get "colorbg" }}{{ else }}FFFFFF{{ end }}&colortxt=%23{{ if .Get "colortxt" }}{{ .Get "colortxt" }}{{ else }}000000{{ end }}&colorsecondarytxt=%23{{ if .Get "colorsecondarytxt" }}{{ .Get "colorsecondarytxt" }}{{ else }}FFFFFF{{ end }}" id="iframe" height="{{ if .Get "height" }}{{ .Get "height" }}{{ else }}450{{ end }}px"></iframe>
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69563847-5"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
 
-			gtag('config', 'UA-69563847-5');
-		</script>
+</div>
 
-		<link rel="stylesheet" href="style.css" />
-		<link rel="icon" type="image/x-icon" href="favicon.ico" />
-	</head>
-	<body>
-		<h1>Modern iCal Calendar Embed</h1>
-		<span id="about">Handcrafted by <a href="https://bengrant.dev" target="_blank">Ben Grant</a> using <a href="https://github.com/mozilla-comm/ical.js/" target="_blank">ical.js</a>. Visit the <a href="https://github.com/GRA0007/modern-cal-embed" target="_blank">Github repo</a>.</span>
-
-		<main>
-			<div id="settings">
-				<h2>Settings</h2>
-
-				<label for="ical">iCal URL</label> <button type="button" id="add_cors">Add cors proxy to url</button><br>
-				<input type="url" id="ical" placeholder="https://example.com/calendar.ical" value="https://gra0007.github.io/modern-cal-embed/example.ics"><br><br>
-
-				<input type="checkbox" checked id="show_title">
-				<label for="show_title">Title</label><br>
-
-				<input type="checkbox" checked id="show_nav">
-				<label for="show_nav">Navigation buttons</label><br>
-
-				<input type="checkbox" checked id="show_date">
-				<label for="show_date">Date</label><br>
-
-				<input type="checkbox" checked id="show_view">
-				<label for="show_view">View selector</label><br>
-
-				<input type="checkbox" id="show_details">
-				<label for="show_details">Always show details</label><br>
-
-				<input type="checkbox" id="monday_start">
-				<label for="monday_start">Start week on Monday</label><br><br>
-
-				<label for="default_view">Default view</label><br>
-				<select id="default_view">
-					<option value="0" selected>Agenda</option>
-					<option value="1">Month</option>
-				</select><br><br>
-
-				<label for="colorbg">Background color</label><br>
-				<input id="colorbg" type="color" value="#FFFFFF"><br>
-				<label for="colortxt">Text color</label><br>
-				<input id="colortxt" type="color" value="#000000"><br>
-				<label for="color">Theme color</label><br>
-				<input id="color" type="color" value="#1A73E8"><br>
-				<label for="colorsecondarytxt">Theme text color</label><br>
-				<input id="colorsecondarytxt" type="color" value="#FFFFFF"><br>
-			</div>
-			<div id="embed">
-				<label for="embed_link">Embed</label>
-				<button type="button" id="copy_url">Copy</button><br>
-				<input type="url" readonly id="embed_link">
-
-				<iframe src="./iframe.html" id="iframe" height="450px"></iframe>
-			</div>
-		</main>
-
-		<script src="script.js"></script>
-	</body>
-</html>
