@@ -21,6 +21,7 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [Deezer](https://www.deezer.com/br/)
 - [Spotify](https://open.spotify.com/)
 - [Imgur](https://help.imgur.com/hc/en-us/articles/211273743-Embed-Unit)
+- iCalendar embed (based off [GRA0007/modern-cal-embed](https://github.com/GRA0007/modern-cal-embed)) (local)
 
 ## Usage
 
@@ -45,9 +46,11 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Birthday Balloons FX
 	- Fork on Github overlay banner?
 	- Magic: the Gathering hovercards (via Scryfall and TappedOut APIs?)
+	- Magic: the Gathering and YuGiOh symbols via [Keyrune](https://keyrune.andrewgioia.com/), [Mana](https://mana.andrewgioia.com/) and wiki-collected YuGiOh symbols
 	- ~~Embeddable Google Forms and Docs/Drive~~ (and alternatives, e.g. Formspree)
-	- Embeddable local JS MP3 player (where did I see that good one?!)
-	- Embeddable PDF.js (~~embeddable PDFs from Google Drive~~)
+	- Embeddable local JS MP3 player ([APlayer + MetingJS](https://github.com/Runzelee/aplayer-hugo-module) is the good one)
+	- Embed [Last.fm Recently Played](https://github.com/JeffreyCA/lastfm-recently-played-readme), as on [this website](https://im.youronly.one/yuki/)
+	- Embeddable PDF.js using [PDFObject](https://pdfobject.com/) (~~embeddable PDFs from Google Drive~~)
 	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
 	- Embeddable Soundcloud
 	- ~~Imgur~~
@@ -57,7 +60,7 @@ Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your w
 	- Unsplash
 	- Thingiverse
 	- Fix class attributes (put in "quotes", make them sensible)
-	- [Google Maps](https://support.google.com/mymaps/answer/3024454)
+	- [Google Maps](https://support.google.com/mymaps/answer/3024454) in a [privacy-friendly way](https://discourse.gohugo.io/t/embedding-google-maps-in-a-privacy-friendly-way/41575)
 	- DocumentCloud ([Homepage](https://www.documentcloud.org/home), [GitHub](https://github.com/muckrock/documentcloud), [Legacy GitHub iframe src](https://github.com/documentcloud/documentcloud/blob/master/app/views/authentication/iframe.html.erb)) (see `view-source:https://embed.documentcloud.org/documents/22058315-is-lamda-sentient-an-interview/?embed=1&responsive=1&title=1` and [here](https://embed.documentcloud.org/help/tips#wordpress-tips))
 	- M$ OneDrive/SharePoint document embeds
 - **Low priority shortcodes**
