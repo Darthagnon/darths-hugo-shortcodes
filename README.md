@@ -36,52 +36,7 @@ The folder structure should be self-explanatory, and you can add these directly 
 Copy the contents of `\layouts\shortcodes\` into the equivalent folder in your website root or theme root.
 
 ## TODO
-- ~~Make this a partial Hugo theme/module, kinda like [Hugo Easy Gallery](https://github.com/Darthagnon/hugo-easy-gallery)?~~
-- Add more detailed example documentation (copy from HTML)
-- Add [alt text to all iframes](https://jkorpela.fi/html/iframe.html)
-- **High priority shortcodes**:
-	- Embeddable RSS feed
-	- Embed funny console messages/debug messages
-	- Christmas Snow FX
-	- Birthday Balloons FX
-	- Fork on Github overlay banner?
-	- Magic: the Gathering hovercards (via Scryfall and TappedOut APIs?)
-	- Magic: the Gathering and YuGiOh symbols via [Keyrune](https://keyrune.andrewgioia.com/), [Mana](https://mana.andrewgioia.com/) and wiki-collected YuGiOh symbols
-	- ~~Embeddable Google Forms and Docs/Drive~~ (and alternatives, e.g. Formspree)
-	- Embeddable local JS MP3 player ([APlayer + MetingJS](https://github.com/Runzelee/aplayer-hugo-module) is the good one)
-	- Embed [Last.fm Recently Played](https://github.com/JeffreyCA/lastfm-recently-played-readme), as on [this website](https://im.youronly.one/yuki/)
-	- Embeddable PDF.js using [PDFObject](https://pdfobject.com/) (~~embeddable PDFs from Google Drive~~)
-	- Advanced image embedding (alignment etc.) than Hugo's Markdown default
-	- Embeddable Soundcloud
-	- ~~Imgur~~
-	- ~~Embeddable [OpenSea NFTs](https://docs.opensea.io/docs/embeds) (only point is to show them off)~~ (done, but OpenSea's API is broken and [does not support Polygon NFTs](https://github.com/ProjectOpenSea/embeddable-nfts/issues/93))
-	- Telegram
-	- Discord Guild badge/memberlist widget
-	- Unsplash
-	- Thingiverse
-	- Fix class attributes (put in "quotes", make them sensible)
-	- [Google Maps](https://support.google.com/mymaps/answer/3024454) in a [privacy-friendly way](https://discourse.gohugo.io/t/embedding-google-maps-in-a-privacy-friendly-way/41575)
-	- DocumentCloud ([Homepage](https://www.documentcloud.org/home), [GitHub](https://github.com/muckrock/documentcloud), [Legacy GitHub iframe src](https://github.com/documentcloud/documentcloud/blob/master/app/views/authentication/iframe.html.erb)) (see `view-source:https://embed.documentcloud.org/documents/22058315-is-lamda-sentient-an-interview/?embed=1&responsive=1&title=1` and [here](https://embed.documentcloud.org/help/tips#wordpress-tips))
-	- M$ OneDrive/SharePoint document embeds
-- **Low priority shortcodes**
-	- Embeddable arbitrary website iframe ([not possible with all websites](https://stackoverflow.com/questions/7422300/checking-if-a-website-doesnt-permit-iframe-embed))
-	- Gfycat
-	- Flickr
-	- Bandcamp (sale-focused, rather than listening-focused)
-	- [Facebook?](https://developers.facebook.com/docs/plugins/)
-	- [Etsy](https://www.etsy.com/widgets)
-	- [Pinterest](https://developers.pinterest.com/tools/widget-builder/?), TikTok, Twitch (these are 💩 and I have no idea why anyone would use them)
-	- [Paypal](https://www.paypal.com/buttons/)
-	- [Patreon](https://www.patreon.com/dashboard/widgets)
-	- [GoFundMe](https://support.gofundme.com/hc/en-gb/articles/203604554-Adding-a-GoFundMe-Widget-to-a-Blog-or-Website)
-	- JSFiddle & Codepen (looks complicated)
-	- Mastodon comments and alternatives? If I ever get this far, might as well include all common comments systems haha (https://news.ycombinator.com/item?id=25570268) - **[Bryce Wray has done something like this](https://www.brycewray.com/posts/2022/06/static-mastodon-toots-hugo/)**
-	- SurveyMonkey (embedding requires a paid account) ([link 1](https://www.surveymonkey.com/curiosity/how-to-embed-your-survey-on-a-website/), [link 2](https://help.surveymonkey.com/en/send/website-collector/))
-- **Possibly better implemented per-site theme?**
-	- [Google ads?](https://support.google.com/adsense/answer/9190028?hl=en)
-	- Matrix for comments or livechat? [Might](https://live.hello-matrix.net/generate.html) or [might not](https://github.com/vector-im/element-web/issues/6078) be possible to embed, or it might be 
-	- [Cactus.chat comments](https://cactus.chat/docs/integrations/hugo/) (Matrix-based), seems a very good idea thanks to Matrix bridging and federation.
-	
+See the [Roadmap](/ROADMAP.md) for a long list of planned integrations! This project aims to make Hugo as flexible as Wordpress and other social media.
 
 ## Further Reading
 - See also official [Hugo documentation](https://gohugobrasil.netlify.app/templates/shortcode-templates/)
