@@ -1,0 +1,360 @@
+:root {
+	--background-color: #FFF;
+	--dark-gray: #777;
+	--border-color: #AAA;
+	--text-color: #000;
+	--theme-color: #1A73E8;
+	--theme-text-color: #FFF;
+}
+
+body {
+	margin: 0;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: sans-serif;
+	min-height: 100vh;
+}
+#loading {
+	display: flex;
+	position: absolute;
+	z-index: 1000;
+	background-color: var(--background-color);
+	color: var(--dark-gray);
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+#loading.done {
+	display: none;
+}
+
+#top {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--background-color);
+	padding: 4px;
+	z-index: 20;
+}
+
+#title {
+	margin: 0;
+	margin-bottom: 6px;
+	font-size: 1.3em;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+}
+nav .spacer {
+	flex: 1;
+}
+
+nav button, nav select {
+	font: inherit;
+	color: inherit;
+	background: 0;
+	font-size: 0.8em;
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+	padding: 4px 8px;
+}
+nav #arrows {
+	display: flex;
+	align-items: center;
+	margin: 0 10px;
+}
+nav #arrows button {
+	border: 0;
+	padding: 0;
+	border-radius: 100px;
+	height: 30px;
+	width: 30px;
+	display: block;
+	cursor: pointer;
+	transition: background-color .2s;
+	outline: 0;
+}
+nav #arrows button:hover {
+	background-color: rgba(0,0,0,.1);
+}
+nav #arrows button:focus {
+	background-color: rgba(0,0,0,.2);
+}
+nav #arrows button svg {
+	height: 24px;
+	width: 24px;
+	padding: 3px;
+}
+
+nav #date_label {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+nav #date_label:hover,
+nav #date_label:focus,
+nav #date_label:focus-within {
+	text-decoration: underline;
+}
+nav #date_label svg {
+	height: 24px;
+	width: 24px;
+	padding-left: 4px;
+}
+nav #date_dropdown {
+	position: absolute;
+	top: 100%;
+	background-color: var(--background-color);
+	width: 100%;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+nav #date_label:focus #date_dropdown,
+nav #date_label:focus-within #date_dropdown {
+	opacity: 1;
+	pointer-events: all;
+}
+nav #date {
+	width: 100%;
+}
+
+#month.hidden, #agenda.hidden {
+	display: none;
+}
+
+#agenda {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: calc(100% - 8px);
+	box-sizing: border-box;
+	margin: 4px;
+}
+#emptystate td {
+	text-align: left !important;
+	color: var(--dark-gray);
+}
+#agenda .emptyday {
+	padding-left: 5px;
+	vertical-align: middle;
+	font-style: italic;
+	color: var(--dark-gray);
+}
+#agenda tr td {
+	padding-top: 14px;
+	vertical-align: top;
+}
+#agenda tr td:first-child {
+	width: 60px;
+	text-align: center;
+}
+#agenda .dayname,
+#agenda .month {
+	display: block;
+	font-size: .6em;
+	font-weight: bold;
+	letter-spacing: .1em;
+	color: var(--dark-gray);
+}
+#agenda .day {
+	display: flex;
+	font-size: 1.2em;
+	align-items: center;
+	justify-content: center;
+}
+#agenda .today .dayname,
+#agenda .today .month {
+	color: var(--theme-color);
+}
+#agenda .today .day span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--theme-text-color);
+	background-color: var(--theme-color);
+	height: 1.6em;
+	width: 1.6em;
+	border-radius: 100px;
+	margin: 4px 0;
+}
+
+#agenda .event {
+	background-color: var(--theme-color);
+	color: var(--theme-text-color);
+	margin-bottom: 8px;
+	border-radius: 3px;
+	margin-left: 5px;
+}
+#agenda .event a {
+	color: inherit;
+}
+#agenda .event .summary {
+	padding: 10px;
+	cursor: pointer;
+}
+#agenda .event.open.always .summary {
+	cursor: initial;
+}
+#agenda .event .name {
+	display: block;
+	font-weight: bold;
+}
+#agenda .event:hover .name,
+#agenda .event:focus .name,
+#agenda .event.open .name {
+	text-decoration: underline;
+}
+#agenda .event.open.always .name {
+	text-decoration: none;
+}
+#agenda .event.open .time {
+	display: none;
+}
+#agenda .event .details {
+	display: none;
+	padding: 0 10px 10px;
+}
+#agenda .event.open .details {
+	margin-top: 4px;
+	display: block;
+}
+
+#agenda .indicator {
+	height: 2px;
+	width: 100%;
+	background-color: var(--text-color);
+	margin-bottom: 8px;
+	position: relative;
+}
+#agenda .indicator:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: -4px;
+	height: 10px;
+	width: 10px;
+	background-color: var(--text-color);
+	border-radius: 100px;
+}
+
+
+#month {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: calc(100% - 8px);
+	box-sizing: border-box;
+	margin: 4px;
+}
+#month td {
+	border: 1px solid var(--border-color);
+	vertical-align: top;
+	overflow: hidden;
+}
+#month .labels td {
+	border: 0;
+	text-align: center;
+	color: var(--dark-gray);
+	font-weight: bold;
+	height: 1px;
+}
+#month td .date {
+	text-align: center;
+	display: block;
+	color: var(--dark-gray);
+	margin-top: 1px;
+}
+#month td .date.current {
+	color: var(--text-color);
+}
+#month td .date span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.7em;
+	width: 1.7em;
+	border-radius: 100px;
+}
+#month td .date.today span {
+	background-color: var(--theme-color);
+	color: var(--theme-text-color);
+}
+#month .event {
+	display: block;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+	font-size: .9em;
+	background-color: var(--theme-color);
+	color: var(--theme-text-color);
+	margin: 2px 0;
+	box-sizing: border-box;
+	padding: 2px 4px;
+	border-radius: 3px;
+}
+#month .past .event {
+	opacity: .6;
+}
+
+#monthDetails {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	z-index: 5000;
+	display: none;
+	overflow-y: auto;
+}
+#monthDetails.shown {
+	display: flex;
+}
+#monthDetails .dialog {
+	background-color: var(--background-color);
+	pointer-events: all;
+	max-width: 60%;
+	box-shadow: 0 5px 30px rgba(0,0,0,.6);
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding: 40px 20px 20px;
+	position: relative;
+	margin: auto;
+}
+#monthDetails button {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	border: 0;
+	padding: 0;
+	border-radius: 100px;
+	height: 30px;
+	width: 30px;
+	display: block;
+	cursor: pointer;
+	transition: background-color .2s;
+	outline: 0;
+	background-color: transparent;
+}
+#monthDetails button:hover {
+	background-color: rgba(0,0,0,.1);
+}
+#monthDetails button:focus {
+	background-color: rgba(0,0,0,.2);
+}
+#monthDetails button svg {
+	height: 24px;
+	width: 24px;
+	padding: 3px;
+}
+#monthDetails .summary {
+	display: block;
+	font-size: 1.6em;
+	margin-bottom: 14px;
+}

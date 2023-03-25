@@ -1,0 +1,60 @@
+body {
+	margin: 20px;
+	background: #FFF;
+	font-family: sans-serif;
+}
+main {
+	display: grid;
+	width: 100%;
+	grid-template-columns: .6fr 1.4fr;
+	grid-gap: 20px;
+}
+iframe {
+	border: 1px solid #777;
+	width: 100%;
+	margin-top: 20px;
+	border-radius: 3px;
+}
+
+h1 {
+	margin: 0;
+}
+#about {
+	display: block;
+	margin: 0 0 30px;
+}
+h2 {
+	margin-top: 0;
+}
+
+label {
+	display: inline-block;
+	margin-top: 6px;
+}
+input[type=url] {
+	width: 100%;
+	box-sizing: border-box;
+}
+input[type=url], select {
+	padding: 4px 6px;
+	background-color: inherit;
+	font: inherit;
+	font-size: .9em;
+	border: 1px solid #777;
+	border-radius: 3px;
+}
+input[type=color], button {
+	padding: 4px 6px;
+	border: 1px solid #777;
+	border-radius: 3px;
+	background: none;
+}
+
+@media screen and (max-width: 650px) {
+	main {
+		display: block;
+	}
+	#embed {
+		margin-top: 20px;
+	}
+}
