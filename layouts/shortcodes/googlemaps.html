@@ -1,0 +1,34 @@
+<!-- Privacy-friendly Google Maps embed
+
+Usage:
+
+googlemaps addr0="ZOE-IT" addr1="Lien Gisolflaan 19" addr2="1183 WT Amstelveen" img="/img/map.jpg" url="https://www.google.com/maps?ll=52.307749,4.883254&amp;z=15&amp;t=m&amp;hl=en-US&amp;gl=NL&amp;mapclient=embed&amp;q=Lien+Gisolflaan+19+1183+WT+Amstelveen"
+
+i.e.
+
+googlemaps addr0="Housename" addr1="69 Street Address" addr2="Town followed by postcode 420" img="/path/to/gmaps/screenshot.jpg" url="https://maps.google.com"
+
+Should also work with OpenStreetMap and other map providers, as no data is provider-specific. It's just styled to look like a Google Maps embed, but does not load any Google tracking or external JS or break when API keys expire, unlike official Google Maps embeds. Downside: it is not dynamically zoomable. But is that a disadvantage? Zoomable dynamic Google Maps embeds slow down page load time, and are quite irrititating and useless. If/when I use them, it is just clicked on to open "full Google Maps".
+
+-->
+
+<div class="embed google map" style="text-align: center;">
+	<link rel="stylesheet" href="{{ "/css/googlemaps.css" | relURL }}" />
+	<a class="map" href="{{ .Get "url" }}" target="_blank" rel="noopener noreferrer" style="max-width: 100%;
+    width: 25rem;
+    height: 12.5rem;
+    background: url(/img/marker.svg) center calc(50% - 1rem) / auto 2rem no-repeat, url({{ .Get "img" }}) center center / cover no-repeat;
+    position: relative;
+    display: block;">
+	<div class="button"></div>	
+	<div class="button large">{{ if .Get "addr1" }}{{ .Get "addr1" }}{{ end }}<br><span>View on Google Maps</span></div> 
+	<div class="label">{{if .Get "addr0" }}{{ .Get "addr0" }}{{ end }}, {{if .Get "addr1" }}{{ .Get "addr1" }}{{ end }}<br>{{if .Get "addr2" }}{{ .Get "addr2" }}{{ end }}</div>
+	<div class="footer">© Google Maps / Snazzy Maps {{ now.Format "2006" }}</div>
+	</a>
+</div>
+
+{{ if .Site.Params.debug }}
+	<script>
+		console.log("Loaded privacy-friendly local Google Maps embed");
+	</script>
+{{ end }}

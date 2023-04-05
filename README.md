@@ -22,6 +22,7 @@ The folder structure should be self-explanatory, and you can add these directly 
 - [Spotify](https://open.spotify.com/)
 - [Imgur](https://help.imgur.com/hc/en-us/articles/211273743-Embed-Unit)
 - iCalendar embed (based off [GRA0007/modern-cal-embed](https://github.com/GRA0007/modern-cal-embed)) (local)
+- [Google Maps](https://support.google.com/mymaps/answer/3024454) in a [privacy-friendly way](https://discourse.gohugo.io/t/embedding-google-maps-in-a-privacy-friendly-way/41575) (local)
 
 ## Usage
 

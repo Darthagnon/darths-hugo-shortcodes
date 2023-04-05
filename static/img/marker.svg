@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1119.4749"
+   height="1766.3896"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="marker.svg"
+   inkscape:version="1.2.1 (1:1.2.1+202210291244+9c6d41e410)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.4054112"
+     inkscape:cx="-1602.0771"
+     inkscape:cy="789.32205"
+     inkscape:window-width="3440"
+     inkscape:window-height="1391"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <title
+     id="title2">Google maps marker for residencelamontagne</title>
+  <g
+     id="g8"
+     transform="translate(209.29592,369.17422)">
+    <title
+       id="title4">Layer 1</title>
+    <path
+       stroke-miterlimit="10"
+       d="M 351.83334,1360.7805 C 313.06748,1170.4795 244.71738,1012.1155 161.93039,865.34052 100.52341,756.46845 29.38644,655.97748 -36.43362,550.40259 -58.40561,515.15857 -77.36758,477.92554 -98.48064,441.34851 c -42.21594,-73.13696 -76.44398,-157.935 -74.26899,-267.932 2.125,-107.473 33.20802,-193.68403 78.02998,-264.17203 73.71907,-115.93497 197.20106,-210.98899 362.88402,-235.96897 135.46609,-20.42401 262.4751,14.08203 352.54303,66.74799 73.6001,43.03799 130.59607,100.52701 173.92004,168.28 45.22004,70.716 76.35901,154.26001 78.97101,263.23202 1.33704,55.83002 -7.80499,107.53199 -20.68402,150.41797 -13.03394,43.40906 -33.99597,79.69501 -52.646,118.45404 -36.406,75.659 -82.04895,144.98194 -127.85498,214.34595 C 535.97638,861.35944 407.9173,1072.0635 351.83335,1360.7805 Z"
+       id="svg_2"
+       style="clip-rule:evenodd;fill:#ea4335;fill-opacity:1;fill-rule:evenodd;stroke:#b31412;stroke-width:72.9;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+    <circle
+       cx="352.89102"
+       cy="225.7791"
+       r="183.33203"
+       id="svg_4"
+       style="clip-rule:evenodd;fill:#b31412;fill-opacity:1;fill-rule:evenodd" />
+  </g>
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Google maps marker for residencelamontagne</dc:title>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

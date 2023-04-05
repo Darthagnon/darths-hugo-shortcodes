@@ -1,0 +1,72 @@
+.map {
+    max-width: 100%;
+    width: 25rem;
+    height: 12.5rem;
+    background: url(/img/marker.svg) center calc(50% - 1rem) / auto 2rem no-repeat, url(/img/map.jpg) center center / cover no-repeat;
+    position: relative;
+    display: block;
+}
+
+.map > div {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #b31412;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.map > div.button.large span {
+    color: #1a73e8;
+    font-size: 0.65rem;
+}
+
+.map > div.button.large {
+    color: black;
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    height: auto;
+    top: 0.5rem;
+    bottom: auto;
+    width: 13rem;
+    left: 0.5rem;
+    right: auto;
+    background: white;
+}
+
+.map a {
+    color: white;
+    text-decoration: none;
+}
+
+.map body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: white;
+    font-weight: 300;
+}
+
+.map > div.button {
+    top: auto;
+    bottom: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    right: 0.5rem;
+    background: white url(/img/open_in_new_FILL0_wght400_GRAD0_opsz48.svg) center center / 88% auto no-repeat;
+    box-shadow: 0px 0px 0.25rem rgb(0 0 0 / 20%);
+}
+
+.map > div.footer {
+    background: rgba(255,255,255,0.75);
+    line-height: 1.85;
+    color: #333;
+    font-weight: 400;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    font-size: 0.55rem;
+    padding: 0 0.25rem;
+    text-align: left;
+}
