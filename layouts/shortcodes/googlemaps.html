@@ -1,0 +1,9 @@
+<div>
+	<a class="map" href="{{ .Get "url" }}" target="_blank" rel="noopener noreferrer">
+		<div class="button"></div>
+		<div class="button large">{{ .Get "addr1" }}<br><span>View on Google Maps</span></div>
+		<div class="label">{{if .Get "addr0" }}{{ .Get "addr0" }}, {{if .Get "addr1" }}{{ .Get "addr1" }}<br>{{if .Get "addr2" }}{{ .Get "addr2" }}</div>
+		<div class="footer">© Google Maps / Snazzy Maps {{ .Now.Year }}</div>
+	</a>
+</div>
+			
